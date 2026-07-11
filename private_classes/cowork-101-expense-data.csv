@@ -1,0 +1,80 @@
+Date,Department,Employee,Category,Vendor,Amount,Status,Notes
+01/03/2026,Marketing,Sarah Chen,Travel,Delta Airlines,$842.00,Approved,NYC summit
+01/05/2026,Marketing,Sarah Chen,Meals & Entertainment,Nobu NYC,$310.50,Approved,Client dinner
+01/07/2026,Marketing,James Park,Software,Canva Pro,$120.00,Approved,
+01/09/2026,Marketing,James Park,office supplies,Staples,$47.20,Approved,
+01/12/2026,Marketing,Priya Nair,TRAVEL,United Airlines,"$1,204.00",Approved,SF conference
+01/12/2026,Marketing,Priya Nair,TRAVEL,United Airlines,"$1,204.00",Approved,SF conference
+01/15/2026,Marketing,Sarah Chen,training,LinkedIn Learning,$299.00,Approved,
+01/20/2026,Marketing,James Park,Meals & Entertainment,Shake Shack,$38.40,Pending,
+2026-01-04,Sales,Marco Rivera,Travel,Marriott,$643.00,Approved,
+2026-01-06,Sales,Marco Rivera,Meals & Ent,Morton's Steakhouse,$528.00,Approved,Q4 close dinner
+2026-01-08,Sales,Lisa Wong,Travel,Hertz,$215.00,Approved,
+2026-01-10,Sales,Lisa Wong,Software,Salesforce,$150.00,Approved,
+2026-01-14,Sales,Marco Rivera,trvl,Southwest Airlines,$389.00,Approved,
+2026-01-18,Sales,David Kim,Meals & Entertainment,,$62.00,Pending,Receipt missing
+2026-01-22,Sales,Lisa Wong,Office Supplies,Best Buy,$189.00,Approved,Keyboard
+01/06/2026,Engineering,Raj Patel,Software,GitHub Enterprise,$840.00,Approved,Annual
+01/11/2026,Engineering,Raj Patel,Equipment,Apple Store,"$2,499.00",Approved,MacBook M4
+01/13/2026,Engineering,Mei Zhang,software,Cursor Pro,$192.00,Approved,
+01/16/2026,Engineering,Mei Zhang,Training,O'Reilly Learning,$499.00,Approved,
+01/21/2026,Engineering,Carlos Gomez,Equipment,Logitech,$289.00,Pending,
+2026-01-07,HR,Angela Torres,Training,SHRM Conference,"$1,850.00",Approved,
+2026-01-09,HR,Angela Torres,Travel,Hilton,$412.00,Approved,
+2026-01-15,Finance,Tom Bradley,Software,QuickBooks,$300.00,Approved,
+2026-01-17,Operations,Nina Scott,Office Supplies,Costco,$203.00,Approved,
+2026-01-23,Operations,Nina Scott,Contractor,Freelancer.com,"$1,200.00",Approved,
+02/02/2026,Marketing,Sarah Chen,Travel,Airbnb,$760.00,Approved,
+02/05/2026,Marketing,Priya Nair,Software,Adobe CC,$599.00,Approved,Annual renewal
+02/10/2026,Marketing,James Park,Meals & Entertainment,Eataly,$155.00,Approved,Team lunch
+02/14/2026,Marketing,Sarah Chen,TRAVEL,American Airlines,"$1,020.00",Approved,Chicago event
+02/18/2026,Marketing,Priya Nair,office supplies,Office Depot,$88.00,Rejected,Over budget
+02/20/2026,Marketing,James Park,training,Coursera,$199.00,Approved,
+2026-02-03,Sales,Marco Rivera,Meals & Ent,Capital Grille,$412.00,Approved,Partner dinner
+2026-02-07,Sales,Lisa Wong,Travel,Delta Airlines,$934.00,Approved,
+2026-02-11,Sales,David Kim,Travel,Hyatt,$540.00,Approved,
+2026-02-13,Sales,David Kim,Software,ZoomInfo,$250.00,Pending,
+2026-02-17,Sales,Marco Rivera,Travel,Hertz,$310.00,Approved,
+2026-02-24,Sales,Lisa Wong,Meals & Entertainment,,$94.00,,Forgot vendor
+02/04/2026,Engineering,Raj Patel,Equipment,LG Electronics,$649.00,Approved,Monitor
+02/09/2026,Engineering,Carlos Gomez,Software,Vercel,$240.00,Approved,
+02/12/2026,Engineering,Mei Zhang,Training,Udemy,$180.00,Approved,
+02/19/2026,Engineering,Raj Patel,Contractor,Upwork,"$3,400.00",Approved,API integration
+02/25/2026,Engineering,Carlos Gomez,Software,Figma,$156.00,Pending,
+2026-02-06,HR,Angela Torres,Office Supplies,Staples,$120.00,Approved,
+2026-02-14,Finance,Tom Bradley,Training,CPA Webinar,$450.00,Approved,
+2026-02-21,Operations,Nina Scott,Contractor,Freelancer.com,$800.00,Approved,
+2026-02-28,Operations,Nina Scott,Software,Monday.com,$480.00,Approved,Annual
+03/02/2026,Marketing,Sarah Chen,TRAVEL,Delta + Hilton bundle,"$2,340.00",Approved,SXSW
+03/04/2026,Marketing,Priya Nair,Meals & Entertainment,Uchi Austin,$620.00,Approved,SXSW client dinner
+03/06/2026,Marketing,James Park,TRAVEL,Southwest Airlines,$487.00,Approved,SXSW
+03/10/2026,Marketing,Sarah Chen,Software,Sprout Social,$399.00,Approved,
+03/15/2026,Marketing,Priya Nair,training,MasterClass Business,$120.00,Pending,
+03/19/2026,Marketing,James Park,office supplies,Amazon,$210.00,Approved,
+03/25/2026,Marketing,Sarah Chen,Meals & Entertainment,,$180.00,Approved,Forgot vendor name
+2026-03-03,Sales,Marco Rivera,trvl,United Airlines,"$1,105.00",Approved,Quarterly summit
+2026-03-05,Sales,Lisa Wong,Meals & Ent,Mastro's,$380.00,Approved,
+2026-03-09,Sales,David Kim,Travel,Marriott,$820.00,Approved,Summit hotel
+2026-03-14,Sales,Marco Rivera,Software,Outreach,$300.00,Approved,
+2026-03-20,Sales,Lisa Wong,Travel,Lyft Business,$142.00,Approved,
+03/07/2026,Engineering,Raj Patel,Software,AWS,"$1,840.00",Approved,Monthly cloud
+03/11/2026,Engineering,Mei Zhang,Equipment,Herman Miller,"$1,299.00",,Chair — awaiting approval
+03/16/2026,Engineering,Carlos Gomez,Training,Google Cloud cert,$200.00,Approved,
+03/22/2026,Engineering,Raj Patel,Contractor,Upwork,"$2,900.00",Approved,
+03/28/2026,Engineering,Mei Zhang,Software,Linear,$240.00,Approved,
+2026-03-04,HR,Angela Torres,Training,HR Summit,"$2,200.00",Approved,Annual conference
+2026-03-12,Finance,Tom Bradley,Software,Stripe,$180.00,Approved,
+2026-03-18,Operations,Nina Scott,Office Supplies,Costco,$340.00,Approved,
+2026-03-26,Operations,Nina Scott,Contractor,Fiverr,$650.00,Approved,
+04/01/2026,Marketing,James Park,Software,Buffer,$99.00,Approved,
+04/03/2026,Sales,David Kim,Travel,Delta Airlines,$520.00,Approved,
+04/07/2026,Engineering,Raj Patel,Software,AWS,"$1,920.00",Approved,Monthly cloud
+04/09/2026,Marketing,Sarah Chen,office supplies,Amazon,$67.00,Pending,
+04/11/2026,Sales,Marco Rivera,Meals & Entertainment,Nobu,$295.00,Approved,
+04/14/2026,Engineering,Carlos Gomez,Equipment,Jabra,$210.00,Approved,Headset
+04/16/2026,HR,Angela Torres,Software,BambooHR,$420.00,Approved,
+04/18/2026,Operations,Nina Scott,Contractor,Upwork,"$1,100.00",Approved,
+04/22/2026,Finance,Tom Bradley,Training,Excel Summit,$350.00,Approved,
+04/24/2026,Marketing,Priya Nair,TRAVEL,JetBlue,$410.00,Approved,
+04/28/2026,Sales,Lisa Wong,Software,HubSpot,$200.00,Pending,
+04/30/2026,Engineering,Mei Zhang,training,Frontend Masters,$390.00,Approved,
