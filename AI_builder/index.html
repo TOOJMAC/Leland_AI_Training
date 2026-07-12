@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theodore McClure — AI Builder Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0e14;
+    --bg-alt: #11151f;
+    --card: #151a24;
+    --card-border: #232a38;
+    --text: #e7eaf0;
+    --text-dim: #9aa4b7;
+    --accent: #6fd3c7;
+    --accent-2: #a78bfa;
+    --tag-py: #ffd866;
+    --tag-go: #6fd3c7;
+    --tag-vhdl: #ff8b8b;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f6f7fb;
+      --bg-alt: #ffffff;
+      --card: #ffffff;
+      --card-border: #e3e6ee;
+      --text: #171a21;
+      --text-dim: #5b6274;
+      --accent: #0f9c8b;
+      --accent-2: #7c5cf5;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .brand {
+    font-family: 'Sora', sans-serif;
+  }
+
+  a { color: var(--accent); }
+
+  .wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--card-border);
+  }
+  nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  nav .brand {
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+  }
+  nav .links {
+    display: flex;
+    gap: 28px;
+  }
+  nav .links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+  nav .links a:hover { color: var(--text); }
+
+  /* HERO */
+  header.hero {
+    position: relative;
+    padding: 120px 0 100px;
+    overflow: hidden;
+  }
+  header.hero::before {
+    content: "";
+    position: absolute;
+    inset: -20% -10% auto -10%;
+    height: 500px;
+    background: radial-gradient(600px circle at 30% 20%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%),
+                radial-gradient(500px circle at 80% 40%, color-mix(in srgb, var(--accent-2) 16%, transparent), transparent 70%);
+    pointer-events: none;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  h1.title {
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    line-height: 1.08;
+    margin: 0 0 18px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .hero .name {
+    font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+    color: var(--text-dim);
+    font-weight: 500;
+    margin: 0;
+  }
+  .hero .name strong {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  section { padding: 88px 0; }
+  section.alt { background: var(--bg-alt); }
+  .section-head {
+    margin-bottom: 40px;
+  }
+  .section-head .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .section-head h2 {
+    font-size: clamp(1.6rem, 3.4vw, 2.1rem);
+    margin: 0;
+    font-weight: 700;
+  }
+
+  /* ABOUT */
+  #about p {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: var(--text-dim);
+    max-width: 62ch;
+  }
+
+  /* WORK / RESUME */
+  .resume-grid {
+    display: grid;
+    gap: 18px;
+  }
+  .resume-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 24px 26px;
+    transition: transform 0.18s ease, border-color 0.18s ease;
+  }
+  .resume-card:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--card-border));
+  }
+  .resume-card .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .resume-card h3 {
+    margin: 0;
+    font-size: 1.08rem;
+    font-weight: 700;
+  }
+  .resume-card .company {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .resume-card .dates {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+  .resume-card p {
+    margin: 10px 0 14px;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--card-border);
+    color: var(--text-dim);
+  }
+  .tag.py { color: var(--tag-py); border-color: color-mix(in srgb, var(--tag-py) 40%, var(--card-border)); }
+  .tag.go { color: var(--tag-go); border-color: color-mix(in srgb, var(--tag-go) 40%, var(--card-border)); }
+  .tag.vhdl { color: var(--tag-vhdl); border-color: color-mix(in srgb, var(--tag-vhdl) 40%, var(--card-border)); }
+
+  /* AI PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 18px;
+  }
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.18s ease, border-color 0.18s ease;
+  }
+  .project-card:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--accent-2) 45%, var(--card-border));
+  }
+  .project-card .status {
+    align-self: flex-start;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: color-mix(in srgb, var(--text-dim) 12%, transparent);
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+  .project-card h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+  .project-card .desc {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+  .project-card .links {
+    display: flex;
+    gap: 14px;
+    margin-top: 4px;
+  }
+  .project-card .links button {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .project-card .links button.doc { color: var(--accent-2); }
+
+  /* MODAL */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 7, 12, 0.65);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 24px;
+  }
+  .modal-backdrop.open { display: flex; }
+  .modal {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    max-width: 520px;
+    width: 100%;
+    padding: 32px;
+    position: relative;
+  }
+  .modal h3 {
+    margin: 0 0 12px;
+    font-size: 1.2rem;
+  }
+  .modal p {
+    color: var(--text-dim);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  .modal .close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 1.3rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .modal .close:hover { color: var(--text); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--card-border);
+    padding: 48px 0 40px;
+  }
+  footer .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  footer .name {
+    font-weight: 700;
+    font-family: 'Sora', sans-serif;
+  }
+  footer .contact {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+  footer .contact a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+  footer .contact a:hover { color: var(--accent); }
+  footer .copy {
+    width: 100%;
+    margin-top: 24px;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  @media (max-width: 640px) {
+    nav .links { gap: 16px; }
+    nav .links a { font-size: 0.82rem; }
+    section { padding: 60px 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">TOOJMAC</div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#projects">AI Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">AI Builder Portfolio</span>
+    <h1 class="title">AI Builder Portfolio</h1>
+    <p class="name"><strong>Theodore McClure</strong> — Founder, TOOJMAC</p>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">01 / About</span>
+      <h2>Who I am</h2>
+    </div>
+    <p>I'm Theodore McClure, founder of TOOJMAC, where I build custom software and automation tools for people who need reliable systems without the overhead of a big dev shop. My background is in test automation, FPGA, and communication systems engineering, and I'm now channeling that same problem-solving itch into AI. This portfolio is where I'm tracking everything I build as I go through the AI Builder program.</p>
+  </div>
+</section>
+
+<section id="work" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">02 / Work</span>
+      <h2>Experience &amp; Skills</h2>
+    </div>
+    <div class="resume-grid">
+
+      <div class="resume-card">
+        <div class="row">
+          <h3>Founder <span class="company">— TOOJMAC</span></h3>
+          <span class="dates">Mar 2026 – Present</span>
+        </div>
+        <p>Custom software and automation development support for clients who need dependable systems built fast — from NI TestStand/LabVIEW test rigs to bespoke tooling.</p>
+        <div class="tags"><span class="tag">NI TestStand</span><span class="tag">NI LabVIEW</span><span class="tag">Automation</span></div>
+      </div>
+
+      <div class="resume-card">
+        <div class="row">
+          <h3>System Engineer <span class="company">— L3Harris Technologies</span></h3>
+          <span class="dates">Sep 2025 – Present</span>
+        </div>
+        <p>Developing and supporting software and hardware for end-to-end communication on critical data links, working across RF engineering disciplines.</p>
+        <div class="tags"><span class="tag">RF Engineering</span><span class="tag">Systems Integration</span></div>
+      </div>
+
+      <div class="resume-card">
+        <div class="row">
+          <h3>Lead Architect <span class="company">— Lead Dog Technologies</span></h3>
+          <span class="dates">Apr 2021 – Aug 2025</span>
+        </div>
+        <p>Designed Open Systems Architecture conformance tools with the SOSA Conformance Committee, including automated conformance testers for VITA 64 and IPMI standards — built on Xilinx Ultrascale FPGAs running PetaLinux, with Go handling ARM-based communication and automation, plus LabVIEW/TestStand for the UI and test automation.</p>
+        <div class="tags"><span class="tag go">Go</span><span class="tag">FPGA</span><span class="tag">Linux</span><span class="tag">SOSA Conformance</span></div>
+      </div>
+
+      <div class="resume-card">
+        <div class="row">
+          <h3>Senior Engineer <span class="company">— Testeract</span></h3>
+          <span class="dates">Apr 2021 – Aug 2025</span>
+        </div>
+        <p>Led engineering projects end-to-end — customer interfacing, equipment purchasing, requirements tracking, test rack design, and mentoring developers — using VHDL, Python, LabVIEW, and NI TestStand to build automation and debugging solutions.</p>
+        <div class="tags"><span class="tag vhdl">VHDL</span><span class="tag py">Python</span><span class="tag">NI LabVIEW</span><span class="tag">NI TestStand</span></div>
+      </div>
+
+      <div class="resume-card">
+        <div class="row">
+          <h3>FPGA Engineer <span class="company">— L3 Technologies</span></h3>
+          <span class="dates">May 2019 – Apr 2021</span>
+        </div>
+        <p>FPGA development for communication systems using VHDL, with Jenkins-based continuous integration.</p>
+        <div class="tags"><span class="tag vhdl">VHDL</span><span class="tag">Jenkins</span></div>
+      </div>
+
+      <div class="resume-card">
+        <div class="row">
+          <h3>Electrical Engineer / Software Developer <span class="company">— L3 Technologies</span></h3>
+          <span class="dates">Aug 2014 – May 2019</span>
+        </div>
+        <p>Built automation software and test racks with National Instruments hardware to verify modem baseband, RF, fiber optic, serial, video, and networking functionality against contract requirements.</p>
+        <div class="tags"><span class="tag">NI LabVIEW</span><span class="tag">NI TestStand</span></div>
+      </div>
+
+      <div class="resume-card">
+        <div class="row">
+          <h3>Co-op Test Engineer <span class="company">— L3 Technologies</span></h3>
+          <span class="dates">Dec 2012 – Aug 2014</span>
+        </div>
+        <p>Supported test fixtures and equipment, wrote test documentation and procedures for government/customer audits, and worked hands-on with RF equipment like antennas and modems.</p>
+        <div class="tags"><span class="tag">RF Testing</span></div>
+      </div>
+
+      <div class="resume-card">
+        <div class="row">
+          <h3>Computer Technician <span class="company">— VLCM</span></h3>
+          <span class="dates">Jan 2008 – Dec 2012</span>
+        </div>
+        <p>Repaired computers and software for schools, colleges, businesses, and individuals across the Salt Lake valley.</p>
+        <div class="tags"><span class="tag">Hardware Repair</span><span class="tag">Support</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">03 / AI Projects</span>
+      <h2>What I'm building</h2>
+    </div>
+    <div class="projects-grid" id="projects-grid"></div>
+  </div>
+</section>
+
+<div class="modal-backdrop" id="modal-backdrop">
+  <div class="modal">
+    <button class="close" id="modal-close" aria-label="Close">&times;</button>
+    <h3 id="modal-title"></h3>
+    <p id="modal-body">Coming soon.</p>
+  </div>
+</div>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="name">Theodore McClure</div>
+    <div class="contact">
+      <a href="mailto:theodore.john.mcclure@gmail.com">theodore.john.mcclure@gmail.com</a>
+      <a href="https://www.linkedin.com/in/theodore-m-870aa744/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <div class="copy">&copy; <span id="year"></span> TOOJMAC — built with the AI Builder program</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const projects = [
+    "Design System Skill",
+    "Portfolio Website",
+    "Voice Guide Skill",
+    "Email Manager Scheduled Task",
+    "Custom Workflow",
+    "Spreadsheet Analysis",
+    "Data Analysis Presentation",
+    "File Organization Process",
+    "AI Context File",
+    "Skills Library"
+  ];
+
+  const grid = document.getElementById('projects-grid');
+  const backdrop = document.getElementById('modal-backdrop');
+  const modalTitle = document.getElementById('modal-title');
+  const modalBody = document.getElementById('modal-body');
+
+  function openModal(title, kind) {
+    modalTitle.textContent = title + ' — ' + kind;
+    modalBody.textContent = 'Coming soon.';
+    backdrop.classList.add('open');
+  }
+
+  function closeModal() {
+    backdrop.classList.remove('open');
+  }
+
+  projects.forEach(name => {
+    const card = document.createElement('div');
+    card.className = 'project-card';
+    card.innerHTML = `
+      <span class="status">Coming Soon</span>
+      <h3>${name}</h3>
+      <p class="desc">Coming soon.</p>
+      <div class="links">
+        <button class="build">How I Built This</button>
+        <button class="doc">Documentation</button>
+      </div>
+    `;
+    card.querySelector('.build').addEventListener('click', () => openModal(name, 'How I Built This'));
+    card.querySelector('.doc').addEventListener('click', () => openModal(name, 'Documentation'));
+    grid.appendChild(card);
+  });
+
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+
+</body>
+</html>
