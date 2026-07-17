@@ -6,33 +6,23 @@
 <title>Theodore McClure — AI Builder Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0b0e14;
-    --bg-alt: #11151f;
-    --card: #151a24;
-    --card-border: #232a38;
-    --text: #e7eaf0;
-    --text-dim: #9aa4b7;
-    --accent: #6fd3c7;
-    --accent-2: #a78bfa;
-    --tag-py: #ffd866;
-    --tag-go: #6fd3c7;
-    --tag-vhdl: #ff8b8b;
-  }
-
-  @media (prefers-color-scheme: light) {
-    :root {
-      --bg: #f6f7fb;
-      --bg-alt: #ffffff;
-      --card: #ffffff;
-      --card-border: #e3e6ee;
-      --text: #171a21;
-      --text-dim: #5b6274;
-      --accent: #0f9c8b;
-      --accent-2: #7c5cf5;
-    }
+    --bg: #0D0D0D;
+    --bg-alt: #090909;
+    --card: #0E0E0E;
+    --card-2: #111111;
+    --card-border: #1A1A1A;
+    --divider: #151515;
+    --row-divider: #141414;
+    --text: #FFFFFF;
+    --text-dim: #888888;
+    --text-dim2: #555555;
+    --text-dim3: #3A3A3A;
+    --accent: #CC2200;
+    --accent-soft: rgba(204, 34, 0, 0.12);
+    --green: #22BB44;
   }
 
   * { box-sizing: border-box; }
@@ -48,7 +38,7 @@
   }
 
   h1, h2, h3, .brand {
-    font-family: 'Sora', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   a { color: var(--accent); }
@@ -63,9 +53,9 @@
     position: sticky;
     top: 0;
     z-index: 50;
-    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    background: rgba(13, 13, 13, 0.85);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--divider);
   }
   nav .wrap {
     display: flex;
@@ -89,7 +79,7 @@
     font-weight: 500;
     transition: color 0.15s ease;
   }
-  nav .links a:hover { color: var(--text); }
+  nav .links a:hover { color: var(--accent); }
 
   /* HERO */
   header.hero {
@@ -102,32 +92,29 @@
     position: absolute;
     inset: -20% -10% auto -10%;
     height: 500px;
-    background: radial-gradient(600px circle at 30% 20%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%),
-                radial-gradient(500px circle at 80% 40%, color-mix(in srgb, var(--accent-2) 16%, transparent), transparent 70%);
+    background: radial-gradient(650px circle at 25% 20%, var(--accent-soft), transparent 70%);
     pointer-events: none;
   }
   .eyebrow {
-    display: inline-block;
+    display: block;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 6px;
     text-transform: uppercase;
     color: var(--accent);
-    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
-    background: color-mix(in srgb, var(--accent) 8%, transparent);
-    padding: 6px 14px;
-    border-radius: 999px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
   }
   h1.title {
-    font-size: clamp(2.4rem, 6vw, 3.6rem);
-    line-height: 1.08;
+    font-size: clamp(2.4rem, 6.5vw, 4.75rem);
+    line-height: 1.0;
     margin: 0 0 18px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
+    font-weight: 900;
+    letter-spacing: -2px;
   }
+  h1.title .accent { color: var(--accent); }
   .hero .name {
-    font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+    font-size: clamp(1.05rem, 2.2vw, 1.25rem);
     color: var(--text-dim);
     font-weight: 500;
     margin: 0;
@@ -137,50 +124,44 @@
     font-weight: 700;
   }
 
-  section { padding: 88px 0; }
+  section { padding: 80px 0; border-bottom: 1px solid var(--divider); }
   section.alt { background: var(--bg-alt); }
-  .section-head {
-    margin-bottom: 40px;
-  }
+  .section-head { margin-bottom: 40px; }
   .section-head .kicker {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 6px;
     text-transform: uppercase;
-    color: var(--accent-2);
+    color: var(--accent);
     margin-bottom: 10px;
     display: block;
   }
   .section-head h2 {
-    font-size: clamp(1.6rem, 3.4vw, 2.1rem);
+    font-size: clamp(1.7rem, 3.6vw, 2.5rem);
     margin: 0;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: -1px;
   }
 
   /* ABOUT */
   #about p {
-    font-size: 1.15rem;
-    line-height: 1.75;
+    font-size: 1.05rem;
+    line-height: 1.7;
     color: var(--text-dim);
     max-width: 62ch;
   }
 
   /* WORK / RESUME */
-  .resume-grid {
-    display: grid;
-    gap: 18px;
-  }
+  .resume-grid { display: grid; gap: 18px; }
   .resume-card {
     background: var(--card);
     border: 1px solid var(--card-border);
     border-radius: 14px;
     padding: 24px 26px;
-    transition: transform 0.18s ease, border-color 0.18s ease;
+    transition: border-color 0.18s ease;
   }
-  .resume-card:hover {
-    transform: translateY(-2px);
-    border-color: color-mix(in srgb, var(--accent) 45%, var(--card-border));
-  }
+  .resume-card:hover { border-color: color-mix(in srgb, var(--accent) 40%, var(--card-border)); }
   .resume-card .row {
     display: flex;
     flex-wrap: wrap;
@@ -189,43 +170,29 @@
     gap: 8px;
     margin-bottom: 8px;
   }
-  .resume-card h3 {
-    margin: 0;
-    font-size: 1.08rem;
-    font-weight: 700;
-  }
-  .resume-card .company {
-    color: var(--accent);
-    font-weight: 600;
-  }
+  .resume-card h3 { margin: 0; font-size: 1.05rem; font-weight: 700; }
+  .resume-card .company { color: var(--accent); font-weight: 600; }
   .resume-card .dates {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    color: var(--text-dim);
+    font-size: 0.76rem;
+    color: var(--text-dim2);
     white-space: nowrap;
   }
   .resume-card p {
     margin: 10px 0 14px;
     color: var(--text-dim);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     line-height: 1.6;
   }
-  .tags {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
+  .tags { display: flex; gap: 8px; flex-wrap: wrap; }
   .tag {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     padding: 4px 10px;
     border-radius: 999px;
     border: 1px solid var(--card-border);
     color: var(--text-dim);
   }
-  .tag.py { color: var(--tag-py); border-color: color-mix(in srgb, var(--tag-py) 40%, var(--card-border)); }
-  .tag.go { color: var(--tag-go); border-color: color-mix(in srgb, var(--tag-go) 40%, var(--card-border)); }
-  .tag.vhdl { color: var(--tag-vhdl); border-color: color-mix(in srgb, var(--tag-vhdl) 40%, var(--card-border)); }
 
   /* AI PROJECTS */
   .projects-grid {
@@ -241,58 +208,51 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    transition: transform 0.18s ease, border-color 0.18s ease;
+    transition: border-color 0.18s ease;
   }
-  .project-card:hover {
-    transform: translateY(-3px);
-    border-color: color-mix(in srgb, var(--accent-2) 45%, var(--card-border));
-  }
+  .project-card:hover { border-color: color-mix(in srgb, var(--accent) 40%, var(--card-border)); }
   .project-card .status {
     align-self: flex-start;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
+    font-size: 0.66rem;
+    font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--text-dim);
-    background: color-mix(in srgb, var(--text-dim) 12%, transparent);
+    color: var(--text-dim2);
+    background: var(--card-2);
+    border: 1px solid var(--card-border);
     padding: 3px 10px;
     border-radius: 999px;
   }
-  .project-card h3 {
-    margin: 0;
-    font-size: 1.05rem;
-    font-weight: 700;
-  }
+  .project-card .status.live { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, var(--card-border)); }
+  .project-card h3 { margin: 0; font-size: 1.02rem; font-weight: 700; }
   .project-card .desc {
     color: var(--text-dim);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     line-height: 1.5;
     flex-grow: 1;
   }
-  .project-card .links {
-    display: flex;
-    gap: 14px;
-    margin-top: 4px;
-  }
+  .project-card .links { display: flex; gap: 16px; margin-top: 4px; }
   .project-card .links button {
     background: none;
     border: none;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
+    font-size: 0.83rem;
     font-weight: 600;
-    color: var(--accent);
     cursor: pointer;
     text-decoration: underline;
     text-underline-offset: 3px;
   }
-  .project-card .links button.doc { color: var(--accent-2); }
+  .project-card .links button.build { color: var(--accent); }
+  .project-card .links button.doc { color: var(--text-dim2); }
+  .project-card .links button.doc:hover { color: var(--text-dim); }
 
   /* MODAL */
   .modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(5, 7, 12, 0.65);
+    background: rgba(0, 0, 0, 0.7);
     display: none;
     align-items: center;
     justify-content: center;
@@ -306,36 +266,144 @@
     border-radius: 16px;
     max-width: 520px;
     width: 100%;
-    padding: 32px;
-    position: relative;
+    max-height: 82vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
-  .modal h3 {
-    margin: 0 0 12px;
-    font-size: 1.2rem;
+  .modal.wide { max-width: 760px; }
+  .modal-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 26px 30px 18px;
+    border-bottom: 1px solid var(--divider);
+    flex-shrink: 0;
   }
-  .modal p {
+  .modal-head h3 { margin: 0; font-size: 1.1rem; font-weight: 700; }
+  .modal-body {
+    padding: 22px 30px 30px;
+    overflow-y: auto;
     color: var(--text-dim);
+    font-size: 0.92rem;
     line-height: 1.6;
-    font-size: 0.95rem;
   }
   .modal .close {
-    position: absolute;
-    top: 18px;
-    right: 18px;
     background: none;
     border: none;
-    color: var(--text-dim);
+    color: var(--text-dim2);
     font-size: 1.3rem;
     cursor: pointer;
     line-height: 1;
+    flex-shrink: 0;
   }
   .modal .close:hover { color: var(--text); }
 
-  /* FOOTER */
-  footer {
-    border-top: 1px solid var(--card-border);
-    padding: 48px 0 40px;
+  /* STEP TIMELINE (How I Built This) */
+  .steps { display: flex; flex-direction: column; }
+  .step { display: flex; gap: 16px; position: relative; padding-bottom: 26px; }
+  .step:last-child { padding-bottom: 0; }
+  .step::after {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 32px;
+    bottom: -26px;
+    width: 1px;
+    background: var(--card-border);
   }
+  .step:last-child::after { display: none; }
+  .step .num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card);
+    position: relative;
+    z-index: 1;
+  }
+  .step .content { padding-top: 5px; }
+  .step .content p { margin: 0; color: var(--text); font-size: 0.92rem; line-height: 1.6; }
+
+  /* DESIGN SYSTEM SHOWCASE (Documentation popup) */
+  .ds-section { margin-bottom: 30px; }
+  .ds-section:last-child { margin-bottom: 0; }
+  .ds-section h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+  .ds-colors {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 12px;
+  }
+  .ds-color { border-radius: 10px; overflow: hidden; border: 1px solid var(--card-border); }
+  .ds-color .swatch { height: 52px; }
+  .ds-color .info { background: var(--card-2); padding: 8px 10px; }
+  .ds-color .info .name { font-size: 0.7rem; color: var(--text); font-weight: 600; margin-bottom: 2px; }
+  .ds-color .info .hex { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim2); }
+
+  .ds-type-row {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--row-divider);
+  }
+  .ds-type-row:last-child { border-bottom: none; }
+  .ds-type-row .spec {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    color: var(--text-dim2);
+    min-width: 150px;
+    flex-shrink: 0;
+  }
+  .ds-type-row .sample { color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  .ds-list { margin: 0; padding-left: 18px; color: var(--text-dim); font-size: 0.88rem; line-height: 1.75; }
+
+  .ds-vibe { display: flex; flex-wrap: wrap; gap: 8px; }
+  .vibe-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--card-border));
+    color: var(--accent);
+  }
+
+  .prompt-block {
+    background: var(--card-2);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .prompt-block:last-child { margin-bottom: 0; }
+
+  /* FOOTER */
+  footer { padding: 48px 0 40px; border-bottom: none; }
   footer .wrap {
     display: flex;
     flex-wrap: wrap;
@@ -343,15 +411,8 @@
     justify-content: space-between;
     gap: 16px;
   }
-  footer .name {
-    font-weight: 700;
-    font-family: 'Sora', sans-serif;
-  }
-  footer .contact {
-    display: flex;
-    gap: 22px;
-    flex-wrap: wrap;
-  }
+  footer .name { font-weight: 700; }
+  footer .contact { display: flex; gap: 22px; flex-wrap: wrap; }
   footer .contact a {
     color: var(--text-dim);
     text-decoration: none;
@@ -363,15 +424,16 @@
   footer .copy {
     width: 100%;
     margin-top: 24px;
-    font-size: 0.78rem;
-    color: var(--text-dim);
+    font-size: 0.76rem;
+    color: var(--text-dim3);
     font-family: 'JetBrains Mono', monospace;
   }
 
   @media (max-width: 640px) {
     nav .links { gap: 16px; }
     nav .links a { font-size: 0.82rem; }
-    section { padding: 60px 0; }
+    section { padding: 48px 0; }
+    header.hero { padding: 90px 0 60px; }
   }
 </style>
 </head>
@@ -392,7 +454,7 @@
 <header class="hero">
   <div class="wrap">
     <span class="eyebrow">AI Builder Portfolio</span>
-    <h1 class="title">AI Builder Portfolio</h1>
+    <h1 class="title">AI Builder <span class="accent">Portfolio</span></h1>
     <p class="name"><strong>Theodore McClure</strong> — Founder, TOOJMAC</p>
   </div>
 </header>
@@ -439,7 +501,7 @@
           <span class="dates">Apr 2021 – Aug 2025</span>
         </div>
         <p>Designed Open Systems Architecture conformance tools with the SOSA Conformance Committee, including automated conformance testers for VITA 64 and IPMI standards — built on Xilinx Ultrascale FPGAs running PetaLinux, with Go handling ARM-based communication and automation, plus LabVIEW/TestStand for the UI and test automation.</p>
-        <div class="tags"><span class="tag go">Go</span><span class="tag">FPGA</span><span class="tag">Linux</span><span class="tag">SOSA Conformance</span></div>
+        <div class="tags"><span class="tag">Go</span><span class="tag">FPGA</span><span class="tag">Linux</span><span class="tag">SOSA Conformance</span></div>
       </div>
 
       <div class="resume-card">
@@ -448,7 +510,7 @@
           <span class="dates">Apr 2021 – Aug 2025</span>
         </div>
         <p>Led engineering projects end-to-end — customer interfacing, equipment purchasing, requirements tracking, test rack design, and mentoring developers — using VHDL, Python, LabVIEW, and NI TestStand to build automation and debugging solutions.</p>
-        <div class="tags"><span class="tag vhdl">VHDL</span><span class="tag py">Python</span><span class="tag">NI LabVIEW</span><span class="tag">NI TestStand</span></div>
+        <div class="tags"><span class="tag">VHDL</span><span class="tag">Python</span><span class="tag">NI LabVIEW</span><span class="tag">NI TestStand</span></div>
       </div>
 
       <div class="resume-card">
@@ -457,7 +519,7 @@
           <span class="dates">May 2019 – Apr 2021</span>
         </div>
         <p>FPGA development for communication systems using VHDL, with Jenkins-based continuous integration.</p>
-        <div class="tags"><span class="tag vhdl">VHDL</span><span class="tag">Jenkins</span></div>
+        <div class="tags"><span class="tag">VHDL</span><span class="tag">Jenkins</span></div>
       </div>
 
       <div class="resume-card">
@@ -502,10 +564,12 @@
 </section>
 
 <div class="modal-backdrop" id="modal-backdrop">
-  <div class="modal">
-    <button class="close" id="modal-close" aria-label="Close">&times;</button>
-    <h3 id="modal-title"></h3>
-    <p id="modal-body">Coming soon.</p>
+  <div class="modal" id="modal">
+    <div class="modal-head">
+      <h3 id="modal-title"></h3>
+      <button class="close" id="modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body" id="modal-body">Coming soon.</div>
   </div>
 </div>
 
@@ -523,27 +587,128 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  function stepsHTML(steps) {
+    return '<div class="steps">' + steps.map((s, i) => `
+      <div class="step">
+        <div class="num">${i + 1}</div>
+        <div class="content"><p>${s}</p></div>
+      </div>`).join('') + '</div>';
+  }
+
+  const designSystemDoc = `
+    <div class="ds-section">
+      <h4>Colors</h4>
+      <div class="ds-colors">
+        <div class="ds-color"><div class="swatch" style="background:#0D0D0D"></div><div class="info"><div class="name">Circuit Black</div><div class="hex">#0D0D0D</div></div></div>
+        <div class="ds-color"><div class="swatch" style="background:#FFFFFF"></div><div class="info"><div class="name">Signal White</div><div class="hex">#FFFFFF</div></div></div>
+        <div class="ds-color"><div class="swatch" style="background:#CC2200"></div><div class="info"><div class="name">Trace Red</div><div class="hex">#CC2200</div></div></div>
+        <div class="ds-color"><div class="swatch" style="background:#888888"></div><div class="info"><div class="name">Muted Gray</div><div class="hex">#888888</div></div></div>
+        <div class="ds-color"><div class="swatch" style="background:#1A1A1A"></div><div class="info"><div class="name">Card Border</div><div class="hex">#1A1A1A</div></div></div>
+        <div class="ds-color"><div class="swatch" style="background:#22BB44"></div><div class="info"><div class="name">Signal Green</div><div class="hex">#22BB44</div></div></div>
+      </div>
+    </div>
+    <div class="ds-section">
+      <h4>Typography</h4>
+      <div class="ds-type-row"><span class="spec">H1 · Inter 900 · -3px</span><span class="sample" style="font-size:1.8rem;font-weight:900;letter-spacing:-1px;">toojmac</span></div>
+      <div class="ds-type-row"><span class="spec">H2 · Inter 800 · -1px</span><span class="sample" style="font-size:1.3rem;font-weight:800;">Section Title</span></div>
+      <div class="ds-type-row"><span class="spec">H3 · Inter 700</span><span class="sample" style="font-size:1rem;font-weight:700;">Card Heading</span></div>
+      <div class="ds-type-row"><span class="spec">Body · Inter 400 · #888</span><span class="sample" style="color:#888;">Body copy for descriptions.</span></div>
+      <div class="ds-type-row"><span class="spec">Eyebrow · Mono 700 · 6px</span><span class="sample" style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;color:#CC2200;">Section Label</span></div>
+      <div class="ds-type-row"><span class="spec">Technical · Mono 400</span><span class="sample" style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;">*IDN? &rarr; response</span></div>
+    </div>
+    <div class="ds-section">
+      <h4>Layout Principles</h4>
+      <ul class="ds-list">
+        <li>Black dominates 60–70% of every layout; red is accent only</li>
+        <li>80px section padding; 1px hairline dividers between sections</li>
+        <li>Cards: 12–14px radius, 1px border, no shadows or gradients</li>
+        <li>Grids: 18–24px gaps, 2–3 columns, collapse to 1 on mobile</li>
+        <li>Only two typefaces: Inter for UI/body, JetBrains Mono for anything technical</li>
+      </ul>
+    </div>
+    <div class="ds-section">
+      <h4>Vibe</h4>
+      <div class="ds-vibe">
+        <span class="vibe-tag">Engineered</span>
+        <span class="vibe-tag">Precise</span>
+        <span class="vibe-tag">Technical</span>
+        <span class="vibe-tag">Confident</span>
+        <span class="vibe-tag">Industrial</span>
+      </div>
+    </div>
+  `;
+
+  const portfolioDoc = `
+    <div class="ds-section">
+      <h4>Techniques Used</h4>
+      <ul class="ds-list">
+        <li>Structured Goal / Context / Rules prompts to keep each build session scoped</li>
+        <li>Interview-first workflow — clarifying questions asked before any code was written</li>
+        <li>Extracted an existing brand style guide (PDF + HTML) into a structured, reusable design spec</li>
+        <li>Converted that spec into a Claude Skill so every future build inherits the brand automatically</li>
+        <li>Single self-contained HTML file — inline CSS/JS, no build step, Google Fonts as the only external dependency</li>
+        <li>Interactive project cards with popup modals used as lightweight case studies</li>
+        <li>In-browser testing across desktop and mobile before shipping</li>
+        <li>Git branch + PR for each round of changes, reviewed before merging</li>
+      </ul>
+    </div>
+    <div class="ds-section">
+      <h4>Key Prompts</h4>
+      <div class="prompt-block">"Build me a complete portfolio website as a single self-contained HTML file. Interview me about any information you don't have."</div>
+      <div class="prompt-block">"Extract a structured design guide from this style guide file — colors with hex codes, typography, layout approach, and words that capture the vibe. Format it so I can paste it into a future prompt."</div>
+      <div class="prompt-block">"Turn this design guide into a reusable skill using /skill-creator so it applies automatically to future builds."</div>
+      <div class="prompt-block">"Style my portfolio with my design skill and build out [a specific feature]. Read the skill before writing any CSS."</div>
+    </div>
+  `;
+
   const projects = [
-    "Design System Skill",
-    "Portfolio Website",
-    "Voice Guide Skill",
-    "Email Manager Scheduled Task",
-    "Custom Workflow",
-    "Spreadsheet Analysis",
-    "Data Analysis Presentation",
-    "File Organization Process",
-    "AI Context File",
-    "Skills Library"
+    {
+      id: 'design-system-skill',
+      title: 'Design System Skill',
+      desc: 'Turned a brand style guide into a reusable Claude skill so every future build matches automatically.',
+      status: 'Built',
+      build: stepsHTML([
+        'Found an inspiration website',
+        'Used Claude in Chrome to extract the design DNA',
+        'Used /skill-creator to turn it into a reusable skill',
+        'Now it works everywhere — type /[skill-name] and every build matches my style'
+      ]),
+      doc: designSystemDoc
+    },
+    {
+      id: 'portfolio-website',
+      title: 'Portfolio Website',
+      desc: 'This very site — a single self-contained HTML file styled entirely with my design skill.',
+      status: 'Built',
+      build: stepsHTML([
+        'Started with a simple scaffolded HTML page',
+        'Applied my design system skill to style it',
+        'Claude interviewed me to fill in real content',
+        'Built out project cards as I completed each AI Builder session'
+      ]),
+      doc: portfolioDoc
+    },
+    { id: 'voice-guide-skill', title: 'Voice Guide Skill', desc: 'Coming soon.' },
+    { id: 'email-manager', title: 'Email Manager Scheduled Task', desc: 'Coming soon.' },
+    { id: 'custom-workflow', title: 'Custom Workflow', desc: 'Coming soon.' },
+    { id: 'spreadsheet-analysis', title: 'Spreadsheet Analysis', desc: 'Coming soon.' },
+    { id: 'data-analysis-presentation', title: 'Data Analysis Presentation', desc: 'Coming soon.' },
+    { id: 'file-organization', title: 'File Organization Process', desc: 'Coming soon.' },
+    { id: 'ai-context-file', title: 'AI Context File', desc: 'Coming soon.' },
+    { id: 'skills-library', title: 'Skills Library', desc: 'Coming soon.' }
   ];
 
   const grid = document.getElementById('projects-grid');
   const backdrop = document.getElementById('modal-backdrop');
+  const modal = document.getElementById('modal');
   const modalTitle = document.getElementById('modal-title');
   const modalBody = document.getElementById('modal-body');
 
-  function openModal(title, kind) {
-    modalTitle.textContent = title + ' — ' + kind;
-    modalBody.textContent = 'Coming soon.';
+  function openModal(project, kind) {
+    const isBuild = kind === 'build';
+    modalTitle.textContent = project.title + ' — ' + (isBuild ? 'How I Built This' : 'Documentation');
+    modalBody.innerHTML = (isBuild ? project.build : project.doc) || 'Coming soon.';
+    modal.classList.toggle('wide', !isBuild && project.id === 'design-system-skill');
     backdrop.classList.add('open');
   }
 
@@ -551,20 +716,21 @@
     backdrop.classList.remove('open');
   }
 
-  projects.forEach(name => {
+  projects.forEach(project => {
     const card = document.createElement('div');
     card.className = 'project-card';
+    const isLive = !!(project.build || project.doc);
     card.innerHTML = `
-      <span class="status">Coming Soon</span>
-      <h3>${name}</h3>
-      <p class="desc">Coming soon.</p>
+      <span class="status${isLive ? ' live' : ''}">${project.status || 'Coming Soon'}</span>
+      <h3>${project.title}</h3>
+      <p class="desc">${project.desc}</p>
       <div class="links">
         <button class="build">How I Built This</button>
         <button class="doc">Documentation</button>
       </div>
     `;
-    card.querySelector('.build').addEventListener('click', () => openModal(name, 'How I Built This'));
-    card.querySelector('.doc').addEventListener('click', () => openModal(name, 'Documentation'));
+    card.querySelector('.build').addEventListener('click', () => openModal(project, 'build'));
+    card.querySelector('.doc').addEventListener('click', () => openModal(project, 'doc'));
     grid.appendChild(card);
   });
 
