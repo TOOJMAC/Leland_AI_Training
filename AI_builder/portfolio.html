@@ -446,6 +446,7 @@
       <a href="#about">About</a>
       <a href="#work">Work</a>
       <a href="#projects">AI Projects</a>
+      <a href="simplicity-inquiry.html">SIMplicity</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -661,6 +662,51 @@
     </div>
   `;
 
+  const voiceGuideDoc = `
+    <div class="ds-section">
+      <h4>The 8-Section Voice Guide</h4>
+      <ul class="ds-list">
+        <li><strong>Core Identity</strong> — who I am on the page, in a few lines</li>
+        <li><strong>Registers</strong> — how my tone shifts across technical, casual, and personal writing</li>
+        <li><strong>Sentence Patterns</strong> — rhythm, length, and structure I default to</li>
+        <li><strong>Rhetorical Moves</strong> — the argument and framing habits I reach for</li>
+        <li><strong>Emotional Register</strong> — how much feeling shows up, and where</li>
+        <li><strong>Do's and Don'ts</strong> — the hard floor of what sounds like me vs. what doesn't</li>
+        <li><strong>Quick Reference</strong> — a condensed cheat sheet for fast calibration</li>
+        <li><strong>Calibration Tests</strong> — checks to run on a draft before calling it done</li>
+      </ul>
+    </div>
+    <div class="ds-section">
+      <h4>Build Your Own</h4>
+      <div class="prompt-block">"Pull my 40 most recent sent emails. Analyze my tone, sentence patterns, rhetorical moves, and emotional register, then write a structured voice guide I can turn into a reusable Claude skill."</div>
+    </div>
+  `;
+
+  const emailManagerDoc = `
+    <div class="ds-section">
+      <h4>Skill Instructions</h4>
+      <ul class="ds-list">
+        <li>Pulls unread mail from the last 24 hours, inbox only</li>
+        <li>Filters out newsletters, automated notifications, and FYI-only CCs</li>
+        <li>Drafts replies for direct questions, decisions, meeting requests, and time-sensitive items</li>
+        <li>Writes every draft in my voice, using the humanize-writing skill for tone calibration</li>
+        <li>Never sends — every reply lands in Drafts for me to review first</li>
+      </ul>
+    </div>
+    <div class="ds-section">
+      <h4>Scheduled Task Setup</h4>
+      <ul class="ds-list">
+        <li>Runs automatically every morning before I'm at my desk</li>
+        <li>Reports back with urgent items first, then everything else numbered</li>
+        <li>Flags anything it's missing context on instead of guessing silently</li>
+      </ul>
+    </div>
+    <div class="ds-section">
+      <h4>Build Your Own</h4>
+      <div class="prompt-block">"Build me an email-manager skill that triages my inbox, filters out noise, and drafts replies in my voice — using my voice guide skill for tone. Never send automatically, always leave drafts for review. Then schedule it to run every morning."</div>
+    </div>
+  `;
+
   const projects = [
     {
       id: 'design-system-skill',
@@ -688,8 +734,32 @@
       ]),
       doc: portfolioDoc
     },
-    { id: 'voice-guide-skill', title: 'Voice Guide Skill', desc: 'Coming soon.' },
-    { id: 'email-manager', title: 'Email Manager Scheduled Task', desc: 'Coming soon.' },
+    {
+      id: 'voice-guide-skill',
+      title: 'Voice Guide Skill',
+      desc: 'A psychological profile of how I write, turned into an AI skill any tool can use.',
+      status: 'Built',
+      build: stepsHTML([
+        'Pulled my 40 most recent sent emails as raw source material',
+        'Used Claude to analyze tone, registers, sentence patterns, and rhetorical moves',
+        'Generated a structured 8-section voice guide from the analysis',
+        'Saved it as a humanize-writing skill — now Claude can write in my voice on any task'
+      ]),
+      doc: voiceGuideDoc
+    },
+    {
+      id: 'email-manager',
+      title: 'Email Manager Scheduled Task',
+      desc: 'A scheduled task that triages my inbox every morning and drafts replies in my voice.',
+      status: 'Built',
+      build: stepsHTML([
+        'Connected Gmail to Claude',
+        'Built an email-manager skill that filters noise and prioritizes what matters',
+        'Wired it to my voice guide skill so drafts sound like me',
+        'Wrapped it in a scheduled task that runs every morning'
+      ]),
+      doc: emailManagerDoc
+    },
     { id: 'custom-workflow', title: 'Custom Workflow', desc: 'Coming soon.' },
     { id: 'spreadsheet-analysis', title: 'Spreadsheet Analysis', desc: 'Coming soon.' },
     { id: 'data-analysis-presentation', title: 'Data Analysis Presentation', desc: 'Coming soon.' },
