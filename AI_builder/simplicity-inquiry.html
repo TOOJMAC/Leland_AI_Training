@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIMplicity Inquiry — TOOJMAC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0D0D0D;
+    --bg-alt: #090909;
+    --card: #0E0E0E;
+    --card-2: #111111;
+    --card-border: #1A1A1A;
+    --divider: #151515;
+    --text: #FFFFFF;
+    --text-dim: #888888;
+    --text-dim2: #555555;
+    --text-dim3: #3A3A3A;
+    --accent: #CC2200;
+    --accent-soft: rgba(204, 34, 0, 0.12);
+    --green: #22BB44;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+  }
+
+  a { color: var(--accent); }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(13, 13, 13, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--divider);
+  }
+  nav .wrap {
+    max-width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  nav .brand {
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    text-decoration: none;
+  }
+  nav .links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+  nav .links a:hover { color: var(--accent); }
+
+  header.hero {
+    padding: 70px 0 50px;
+  }
+  .eyebrow {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+  h1.title {
+    font-size: clamp(2rem, 5.5vw, 3rem);
+    line-height: 1.05;
+    margin: 0 0 14px;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+  }
+  h1.title .accent { color: var(--accent); }
+  .lede {
+    font-size: 1.02rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 56ch;
+  }
+
+  section { padding: 0 0 80px; }
+
+  .form-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 32px;
+  }
+
+  .field { margin-bottom: 22px; }
+  .field label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+  .field label .req { color: var(--accent); }
+  .field .hint {
+    font-size: 0.78rem;
+    color: var(--text-dim2);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  input[type="text"], input[type="email"], input[type="date"], select, textarea {
+    width: 100%;
+    background: var(--card-2);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    color: var(--text);
+    padding: 11px 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  textarea { min-height: 90px; resize: vertical; }
+
+  .field.error input, .field.error select {
+    border-color: var(--accent);
+  }
+
+  .radio-group { display: flex; gap: 20px; padding-top: 4px; }
+  .radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    font-size: 0.92rem;
+    margin-bottom: 0;
+  }
+  .radio-group input { width: auto; }
+
+  #board-type-field { display: none; margin-top: 14px; }
+
+  .error-summary {
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--card-border));
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 24px;
+    display: none;
+  }
+  .error-summary.show { display: block; }
+  .error-summary h4 {
+    margin: 0 0 8px;
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .error-summary ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--text);
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  button.submit {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 26px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  button.submit:hover { opacity: 0.9; }
+  button.submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .status-msg {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    display: none;
+  }
+  .status-msg.show { display: block; }
+  .status-msg.success { background: rgba(34, 187, 68, 0.12); border: 1px solid var(--green); color: var(--green); }
+  .status-msg.failure { background: var(--accent-soft); border: 1px solid var(--accent); color: var(--text); }
+  .status-msg.failure a { color: var(--text); text-decoration: underline; }
+
+  footer { padding: 0 0 48px; }
+  footer .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    max-width: 720px;
+    border-top: 1px solid var(--divider);
+    padding-top: 24px;
+  }
+  footer a { color: var(--text-dim); text-decoration: none; font-size: 0.88rem; }
+  footer a:hover { color: var(--accent); }
+
+  @media (max-width: 560px) {
+    header.hero { padding: 44px 0 34px; }
+    .form-card { padding: 22px; }
+    .radio-group { gap: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="portfolio.html">TOOJMAC</a>
+    <div class="links"><a href="portfolio.html">&larr; Back to Portfolio</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">SIMplicity Workflow</span>
+    <h1 class="title">Request an <span class="accent">Emulator</span></h1>
+    <p class="lede">Need to develop against an instrument that isn't on your bench yet? Tell me the make, model, and protocol, and I'll get a firmware load built and sent back to you.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="form-card">
+
+      <div class="error-summary" id="error-summary">
+        <h4>Before you submit</h4>
+        <ul id="error-list"></ul>
+      </div>
+
+      <form id="inquiry-form" novalidate>
+        <div class="field" id="req-name-field">
+          <label for="req-name">Your name <span class="req">*</span></label>
+          <input type="text" id="req-name" autocomplete="name">
+        </div>
+
+        <div class="field" id="req-email-field">
+          <label for="req-email">Your email <span class="req">*</span></label>
+          <input type="email" id="req-email" autocomplete="email">
+        </div>
+
+        <div class="field" id="make-field">
+          <label for="make">Instrument make <span class="req">*</span></label>
+          <input type="text" id="make" placeholder="e.g. Keysight">
+        </div>
+
+        <div class="field" id="model-field">
+          <label for="model">Instrument model <span class="req">*</span></label>
+          <input type="text" id="model" placeholder="e.g. N6700">
+        </div>
+
+        <div class="field" id="protocol-field">
+          <label for="protocol">Protocol <span class="req">*</span></label>
+          <select id="protocol">
+            <option value="">Select a protocol</option>
+            <option value="GPIB">GPIB</option>
+            <option value="Serial">Serial</option>
+            <option value="I2C">I2C</option>
+            <option value="Ethernet">Ethernet</option>
+          </select>
+          <div class="hint">e.g. GPIB for a Keysight N6700, Serial for a Sorensen XHR33-33.</div>
+        </div>
+
+        <div class="field" id="hardware-field">
+          <label>Do you already have the target hardware? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label><input type="radio" name="hardware" value="yes"> Yes</label>
+            <label><input type="radio" name="hardware" value="no"> No, please send one</label>
+          </div>
+          <div class="field" id="board-type-field">
+            <label for="board-type">Which board? <span class="req">*</span></label>
+            <input type="text" id="board-type" placeholder="e.g. Arduino Uno, ESP32">
+          </div>
+        </div>
+
+        <div class="field" id="needed-by-field">
+          <label for="needed-by">Needed by <span class="req">*</span></label>
+          <input type="date" id="needed-by">
+        </div>
+
+        <div class="field" id="notes-field">
+          <label for="notes">Notes</label>
+          <textarea id="notes" placeholder="Anything else that would help — command set quirks, address settings, etc."></textarea>
+        </div>
+
+        <button type="submit" class="submit" id="submit-btn">Submit Inquiry</button>
+      </form>
+
+      <div class="status-msg" id="status-msg"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Theodore McClure — TOOJMAC</span>
+    <a href="mailto:theodore.john.mcclure@gmail.com">theodore.john.mcclure@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+  // TJ: paste your deployed Apps Script Web App URL here once apps-script/Code.gs is deployed.
+  const WEBAPP_URL = 'REPLACE_WITH_APPS_SCRIPT_WEB_APP_URL';
+
+  const form = document.getElementById('inquiry-form');
+  const errorSummary = document.getElementById('error-summary');
+  const errorList = document.getElementById('error-list');
+  const statusMsg = document.getElementById('status-msg');
+  const submitBtn = document.getElementById('submit-btn');
+  const boardTypeField = document.getElementById('board-type-field');
+
+  document.querySelectorAll('input[name="hardware"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const hasHardware = document.querySelector('input[name="hardware"]:checked').value === 'yes';
+      boardTypeField.style.display = hasHardware ? 'block' : 'none';
+      if (!hasHardware) document.getElementById('board-type').value = '';
+    });
+  });
+
+  function clearFieldError(fieldId) {
+    document.getElementById(fieldId).classList.remove('error');
+  }
+
+  function validate() {
+    const errors = [];
+    const requiredTextFields = [
+      ['req-name-field', 'req-name', 'Your name'],
+      ['req-email-field', 'req-email', 'Your email'],
+      ['make-field', 'make', 'Instrument make'],
+      ['model-field', 'model', 'Instrument model'],
+      ['protocol-field', 'protocol', 'Protocol'],
+      ['needed-by-field', 'needed-by', 'Needed-by date'],
+    ];
+
+    requiredTextFields.forEach(([fieldId, inputId, label]) => {
+      clearFieldError(fieldId);
+      const val = document.getElementById(inputId).value.trim();
+      if (!val) {
+        errors.push(label);
+        document.getElementById(fieldId).classList.add('error');
+      }
+    });
+
+    const emailVal = document.getElementById('req-email').value.trim();
+    if (emailVal && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+      errors.push('Your email (must be a valid email address)');
+      document.getElementById('req-email-field').classList.add('error');
+    }
+
+    clearFieldError('hardware-field');
+    const hardwareChecked = document.querySelector('input[name="hardware"]:checked');
+    if (!hardwareChecked) {
+      errors.push('Whether you already have the target hardware');
+      document.getElementById('hardware-field').classList.add('error');
+    } else if (hardwareChecked.value === 'yes') {
+      clearFieldError('board-type-field');
+      if (!document.getElementById('board-type').value.trim()) {
+        errors.push('Which board you have (since you have hardware on hand)');
+        document.getElementById('board-type-field').classList.add('error');
+      }
+    }
+
+    return errors;
+  }
+
+  function showErrors(errors) {
+    if (errors.length === 0) {
+      errorSummary.classList.remove('show');
+      errorList.innerHTML = '';
+      return;
+    }
+    errorList.innerHTML = errors.map(e => `<li>${e}</li>`).join('');
+    errorSummary.classList.add('show');
+    errorSummary.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function genId() {
+    const ts = Date.now().toString(36).toUpperCase();
+    const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
+    return `SIM-${ts}-${rand}`;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const errors = validate();
+    showErrors(errors);
+    if (errors.length) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    statusMsg.className = 'status-msg';
+
+    const id = genId();
+    const hardware = document.querySelector('input[name="hardware"]:checked').value;
+    const payload = {
+      id,
+      requesterName: document.getElementById('req-name').value.trim(),
+      requesterEmail: document.getElementById('req-email').value.trim(),
+      instrumentMake: document.getElementById('make').value.trim(),
+      instrumentModel: document.getElementById('model').value.trim(),
+      protocol: document.getElementById('protocol').value,
+      hardwareOnHand: hardware,
+      boardType: hardware === 'yes' ? document.getElementById('board-type').value.trim() : '',
+      neededBy: document.getElementById('needed-by').value,
+      notes: document.getElementById('notes').value.trim(),
+    };
+
+    try {
+      if (WEBAPP_URL.startsWith('REPLACE_')) throw new Error('not-configured');
+      // text/plain avoids a CORS preflight against the Apps Script Web App;
+      // Code.gs reads the raw body and parses it as JSON regardless of header.
+      const res = await fetch(WEBAPP_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error('bad-status');
+
+      statusMsg.textContent = `Sent — your reference number is ${id}. You'll get a confirmation email shortly.`;
+      statusMsg.classList.add('show', 'success');
+      form.reset();
+      boardTypeField.style.display = 'none';
+    } catch (err) {
+      statusMsg.innerHTML = `Something went wrong submitting this — email me directly at <a href="mailto:theodore.john.mcclure@gmail.com?subject=New%20SIMplicity%20Inquiry%20%23${id}">theodore.john.mcclure@gmail.com</a> with the same details. Reference: ${id}`;
+      statusMsg.classList.add('show', 'failure');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Inquiry';
+    }
+  });
+</script>
+
+</body>
+</html>
