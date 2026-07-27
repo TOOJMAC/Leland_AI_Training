@@ -1,0 +1,168 @@
+Delivered-To: tooj13@gmail.com
+Received: by 2002:a05:7108:462a:b0:54e:1977:4f03 with SMTP id bl42csp5086913gdb;
+        Sun, 21 Jun 2026 09:29:33 -0700 (PDT)
+X-Received: by 2002:a05:620a:40c1:b0:8ee:eb50:4f51 with SMTP id af79cd13be357-92091786329mr1951087285a.54.1782059373569;
+        Sun, 21 Jun 2026 09:29:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1782059373; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=eWtM35jQNADmQnIyD43w3gcH0BkAwYRWZYBK8/4yO4O83VJOVRd6dz9JG9s9sEt0S4
+         W+0YtCwvYf5vlSjZXZo9wDxgBfRV1IJOUN9RdmXZtLqo5jzdNTjLp/oWkHzejpzx12N0
+         QnxCD0wK0GH6LaXzdD/fMtm0kOcDUW7KoN54AWX/2jSGvyHOwx35rF8t1nulRiPPxIDF
+         vWnZCrPYBCnoIGJvIiVdVSntVM/+sVStGyyasSUmdojrTugXnL4xltX6vo5SBsBBb+nb
+         RvKn3csRVSKqvYGkZN9M9qEWX5ZC5BVp2Qm3GDvYnF/eWcnI/v4Y9VALJOrV7cIzFmV/
+         qKiw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:subject:message-id:date:mime-version:from:dkim-signature;
+        bh=ARrnzFCUpnebH2VcqYzaQf0DmRZK6OpW4IiNSLfNA5Q=;
+        fh=mg22T2AwAsxH78SQ0vstXvNiKOMVfhJXjiXrz8i1OX4=;
+        b=GybnsjwTkyN5yeVFHc3Dn3WV6eqgs2guJeAYAIBvZpvmhf8nZPDdlzLlsjSYVRYRwJ
+         j4Y0XBSFri2kqCf1nasyy5zAwvApLATHF9ucHe2x/s5RJeFIJ/Q7D9E9abg1xO/D7Ooi
+         2Na9Hi3XOSCbm4rY70InA79JV36G8ifkGgC93vQerrbKDnnA+G68XZbxTbtEoeND0v+Y
+         hSnUg+dUxtiXMVHxenjNSbgCcBlwQ0neA1VxH4XxGR/GXZxmXAi23ynidnAHVjKnYIsr
+         n6G6ssoB9oLvAP6D1k4elJYaOsurlJLzthQydL03lW+4oZLy6QiQviiz7bCjoYHkZ1VQ
+         9MIw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@joinleland.com header.s=google header.b=DIhR8dje;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of rob@mail.joinleland.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=rob@mail.joinleland.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mail.joinleland.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <rob@mail.joinleland.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id af79cd13be357-921db356ad1sor508886085a.13.2026.06.21.09.29.33
+        for <tooj13@gmail.com>
+        (Google Transport Security);
+        Sun, 21 Jun 2026 09:29:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of rob@mail.joinleland.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@joinleland.com header.s=google header.b=DIhR8dje;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of rob@mail.joinleland.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=rob@mail.joinleland.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mail.joinleland.com;
+       dara=pass header.i=@gmail.com
+ARC-Seal: i=1; a=rsa-sha256; t=1782059373; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ifYmSH2YwB0q2dnBlK8JvdCGT5x8+4dFDZp9nc1bauNrJ7ssCYCa80NUxPd9BNXdiR
+         p4HJwzvBR/N4wT0LuanL3TQ93GW406OtcL71DXbrBXfigAVCnEhKRh+Iv6UyAi1UgudJ
+         C+/5DgU+CxD+0PLeo5K0ljZcb47/yNKtjZe3fHf4leZKVGCXsrGrUL8bIGUjAmGzzrM1
+         F9LAwI6XHK3bL1+u/sWTlCRYAbFJdDAMRpOLTSumGSROCZK+HyVB0Va3qL74nxpbpAZY
+         tSL3wySGjtWjb5gVll3frccNxKh+HrGeTzsa/sKbbU7RkmYd0B2RVMshvtcimNDh17Co
+         CRKQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:mime-version:from:dkim-signature;
+        bh=ARrnzFCUpnebH2VcqYzaQf0DmRZK6OpW4IiNSLfNA5Q=;
+        fh=mg22T2AwAsxH78SQ0vstXvNiKOMVfhJXjiXrz8i1OX4=;
+        b=PheeJP+Dm8eBMoX+y9SbyolVHKCoKgVRLTrLy7uRMnXGJQig/evLcLR0GkTQFsQfMV
+         2NcD+SoG+N046gFYAOykf5ddkMlwMJsEhXp520zUFbMUh85lQpeidRxe05Yqhga8B2hO
+         SCb6D0INYRPp11Ii4yBUcJC5ud2QwqNJu/yeTB2EOELEAQOamcWfUKbJFp1S6M1njuto
+         PXpArXWmahJ8hXLfOPCTllDoqAdXVQ0obwde6KuZJyA/g37NW3GQ3W6NjTjG+nozGziJ
+         zoNAUfIjsVEE9MZauK5hJnl3tfigvnX2lAoO5plOuwRn1z/+PUzoU1L/qNeizzSAStSR
+         VtJg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=joinleland.com; s=google; t=1782059373; x=1782664173; dara=google.com;
+        h=to:subject:message-id:date:mime-version:from:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ARrnzFCUpnebH2VcqYzaQf0DmRZK6OpW4IiNSLfNA5Q=;
+        b=DIhR8djeyr46Z0QAMW5ADURrDkzxRJlYb7XrEDzSer/Zj5K3NZ56mGLQWU7sTUBeSF
+         oKkgx5H/j7qdij+9MCvRMuowshJW1oAUFHwxovCXUCyDnA3vq2W1LPL9UdG98QCZ8SPM
+         ZCzRCaC7BhWp+ZBDr9CCE9E7Y19ZpFuUf0Zb6u8o95MvBfg2lmuuo1LX7M7XbeYGeXpB
+         /tq1w9KrPxcT26YVju/vAn2L2joQPadhL/uqgGoTCTSNSmdJasenuK5/LpQT/bajNJnI
+         UUWuJo8QpwfVSKB7O9GnvC4uuUZBNjDzj8lhJBRO47PLriNI1PiFwlhkU9seunbzfneX
+         AliA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782059373; x=1782664173;
+        h=to:subject:message-id:date:mime-version:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ARrnzFCUpnebH2VcqYzaQf0DmRZK6OpW4IiNSLfNA5Q=;
+        b=D+9Sc9ak1J5nO/pLLYVKIP7f90Xw35j4qFXoCsF+xqbMfGKnNBx1XIFSFtOL5qqccQ
+         UXv4UTXi6PG4MtYhydfzx4i2aliZD3V68oLPkda85OfcJ+wDPhhgFqi9dUvFAaQYUNvj
+         PIooOHR34lbMIptX2GF8+zLwwraxoggie89Yp/8W7vEUy00kOX6jSuW4ptiqoptu/XqC
+         ExT2j/pn9w7B7F4Da1czNyXzgCVIhY5cEPC9QzO46wGZT8AQ0bW5KIswOhAMDuTPM6Y9
+         6LTKag+sEXoRpjqcagKzV5evfbSglpFN398zCHTQYIPuAHAjPZkmqg1D83w9o5m9Jhez
+         UHRg==
+X-Gm-Message-State: AOJu0YzXOQslpYoP42eczn0X8CF3ssR7ry7YxcQAbsf/Xl/6eETeBn4f
+	SojgQDLoO2PGfLpKZfi2Bbl3lml2VpDtIno7At63pcW3D9xm+9BuzFmtgHmD9TZawXsxePYuRnf
+	ExVW5JfF1/8jVEUKSZMbUAueutPdSWbNLYKKgR15iVaSjZdlTZaXw
+X-Gm-Gg: AfdE7cnf5NhdJfPsQozWEdYMBr+6h/tUYjW0+AZd95n7xgKovnRfwyxwVB8/Ks7VJ/x
+	yov+evMlatSvrQYNlCbZ8GNiNJcEmBLYVwzTNJg/UuiTBDPWnX540/W2I7gez0+XWbkThkzkbo6
+	Oa3YSkMsCy4tPPW+7WntYiqWm+kN6BcFK4GGJbY1fOAhrmzAQ40/cdmUV4LR1vqMTNKCgK69JWT
+	At0Tn925cn5N8h9rwYnLxxtRuOVRgIFkdj4mVS0L80ehFJXGW5eELAJ4ksCdkBG48uAsY21/Hit
+	Q4Bq3ig=
+X-Received: by 2002:a05:622a:1492:b0:517:7303:df84 with SMTP id
+ d75a77b69052e-519e4e10cb0mr161301271cf.56.1782059372743; Sun, 21 Jun 2026
+ 09:29:32 -0700 (PDT)
+Received: from 466680526474 named unknown by gmailapi.google.com with
+ HTTPREST; Sun, 21 Jun 2026 09:29:32 -0700
+Received: from 466680526474 named unknown by gmailapi.google.com with
+ HTTPREST; Sun, 21 Jun 2026 09:29:32 -0700
+From: Rob Rohrbaugh <rob@mail.joinleland.com>
+MIME-Version: 1.0
+X-HS-Fax-Cid: 1ckykka7mx7ktj8d9m77xkvnewl3bgzkaax1i8lfga9k75wpg3esibkiezx8x81mzk6tuv31nfbntlncfuxjfg2p9i3oyixgx1ndabr0c7pmmu70pher6ok5m0dqeimti
+Date: Sun, 21 Jun 2026 09:29:32 -0700
+X-Gm-Features: AVVi8CcRkieGA-Txl97WZYXypCcsKhr3AHTeQ-pSN3HVcsy5nRkU2L5mpxjZywk
+Message-ID: <CAKV-wBwH0S8Bfc2aqoJDZ_fmtJnGxznbnfRGXo4+1cMUtMN_Ng@mail.gmail.com>
+Subject: AI Builder Program Giveaway Results
+To: tooj13@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000e19f470654c607c5"
+
+--000000000000e19f470654c607c5
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hey TJ,
+
+
+This is Rob from Leland. I'm excited to connect, glad that you entered our
+AI Builder giveaway today!
+
+
+I'm sorry you weren't the winner, but the team gave me a deal I could share
+with giveaway entrants who are really serious about building with AI.
+
+
+Are you free this week or early next for a quick call? I'd love to hear
+what you're working on and see whether this would be a fit. Let me know if
+you're open to chat!
+
+
+Rob
+*Rob Rohrbaugh*
+Client Success Lead @ Leland
+Grab time with me
+<https://d2FHRl04.na1.hs-sales-engage.com/Ctc/UC+23284/d2FHRl04/JkM2-6qcW6N=
+1vHY6lZ3mkW91s2Gs1CPqCvVBL47V22SkpCVN431X2wMPxzW4SHXq53zmvdKW8WX6qx51cL-sW5=
+ZgKr67tXkHkVr1F8671hx_zW2Bm_-93WHxZSW6cT7hQ5rWhMJW7D9QKY4h9rzWW733c8X503h-p=
+W4XPbCQ6vwQJjW7HkBd95GPqT4W2B1NWj7RwT2zW48y11d301s3qW38wLGR1VFSKYV35xsN7qgy=
+6YW2Fqg593Rc92wW5pyK308fb3jJN8RzKcL6xJg5W4g3grl6GLz3BN1lxBp6WcJFPf1jDKqd04>
+
+--000000000000e19f470654c607c5
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head></head><body><div style=3D"" dir=3D"auto"><p style=3D"margin:0"=
+>Hey TJ,</p><p style=3D"margin:0"><br class=3D"hs-trailingbreak"></p><p sty=
+le=3D"margin:0">This is Rob from Leland. I&#39;m excited to connect, glad t=
+hat you entered our AI Builder giveaway today!</p><p style=3D"margin:0"><br=
+ class=3D"hs-trailingbreak"></p><p style=3D"margin:0">I&#39;m sorry you wer=
+en&#39;t the winner, but the team gave me a deal I could share with giveawa=
+y entrants who are really serious about building with AI.</p><p style=3D"ma=
+rgin:0"><br class=3D"hs-trailingbreak"></p><p style=3D"margin:0">Are you fr=
+ee this week or early next for a quick call? I&#39;d love to hear what you&=
+#39;re working on and see whether this would be a fit. Let me know if you&#=
+39;re open to chat!</p><p style=3D"margin:0"><br class=3D"hs-trailingbreak"=
+></p><p style=3D"margin:0"> Rob</p></div><div><div><strong>Rob Rohrbaugh</s=
+trong></div><div>Client Success Lead @ Leland</div><div><a href=3D"https://=
+d2FHRl04.na1.hs-sales-engage.com/Ctc/UC+23284/d2FHRl04/JkM2-6qcW6N1vHY6lZ3m=
+kW91s2Gs1CPqCvVBL47V22SkpCVN431X2wMPxzW4SHXq53zmvdKW8WX6qx51cL-sW5ZgKr67tXk=
+HkVr1F8671hx_zW2Bm_-93WHxZSW6cT7hQ5rWhMJW7D9QKY4h9rzWW733c8X503h-pW4XPbCQ6v=
+wQJjW7HkBd95GPqT4W2B1NWj7RwT2zW48y11d301s3qW38wLGR1VFSKYV35xsN7qgy6YW2Fqg59=
+3Rc92wW5pyK308fb3jJN8RzKcL6xJg5W4g3grl6GLz3BN1lxBp6WcJFPf1jDKqd04" target=
+=3D"_blank">Grab time with me</a></div></div><img width=3D"1" height=3D"1" =
+style=3D"display:none" alt=3D"" src=3D"https://d2FHRl04.na1.hs-sales-engage=
+.com/Cto/UC+23284/d2FHRl04/R5S8b45kwN80bctZ2d1jXW1Q4Xl325d519W21j9GT1Z0mbDW=
+3JHzP224T5ZYW20YJ1r23gFSWW20WZgk24W65DVhPQ-t6-K6H00"></body></html>
+
+--000000000000e19f470654c607c5--
