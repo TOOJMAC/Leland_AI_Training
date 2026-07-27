@@ -1,0 +1,155 @@
+Delivered-To: tooj13@gmail.com
+Received: by 2002:a05:7108:aa92:b0:497:a71e:4a61 with SMTP id mh18csp1121167gdb;
+        Tue, 23 Sep 2025 14:11:11 -0700 (PDT)
+X-Received: by 2002:ac8:5ac9:0:b0:4b4:9522:67a with SMTP id d75a77b69052e-4d3697f18b0mr46470671cf.33.1758661871122;
+        Tue, 23 Sep 2025 14:11:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1758661871; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Gv0pfRYUgZwiCfL5AklFwILElxAymgFhAEVdBPoBo2pZ+C9vtcRxl6+7etvYi0xg2Z
+         F11WQVX89mLICksvJN9v/vA0zIM+kvKj+VHcBifvuZQghY9QcLU7ZFY83ZONSDDXNvUc
+         dvr6KqdOZe73oLicGqtUnFQ3sqrz61D7M/UX9LIkk4mzDhgdyaQMoGB5spKIzBqhrsWb
+         1+eok7u87eURDI1AZ+LxuXc9Re81nJoZChHo0zhCz944E8Rwm2lZRfSneY5NlYDF9f+P
+         M6NEZaF8LV88KhNiJ0JIndCEEEw8IiqKVOMBc8m58xJCBJcfkOfDU0EI/d/wZneWgV+6
+         oqvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=WKxKs9r5e+GpVSVE/PxC4BUE+m3D50s11lOj5a7iZqc=;
+        fh=mg22T2AwAsxH78SQ0vstXvNiKOMVfhJXjiXrz8i1OX4=;
+        b=c4rAeJwFNz2LresMaFs5Q6C3ZowGf4r142TOda0EB/B/Oqg6rZoLBh1mh8seRVKG1o
+         4H/zTspN9A3VHs8AnzRATP6SVVGjlHB4MocsRh5g4Ns/ge/P/dTwgmKVzSKSn+8patck
+         TfcFs3CNhLjITDUTu9p3fLfe3B3i4JQpFlNDP7RodIELlmPpjBdo9B94nb4UU0GCunpy
+         4Qg4U4uoO3jxY0fVIhNxIUflswMHHvFspUygvVU+1eLgNB7660jpDq2AFq7fbET9UtrC
+         ba6WdylNk9m74QqcAjQ4lKh1WNwALj5EaxLO1VD6GGH9JKq0K/+tQ4Ju1J8jagmG9aM5
+         WVyQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@utah.gov header.s=google header.b=SD8fHx8d;
+       spf=pass (google.com: domain of tgoetz@utah.gov designates 209.85.220.41 as permitted sender) smtp.mailfrom=tgoetz@utah.gov;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=utah.gov;
+       dara=pass header.i=@gmail.com
+Return-Path: <tgoetz@utah.gov>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id d75a77b69052e-4d5409b8d9asor33625411cf.2.2025.09.23.14.11.11
+        for <tooj13@gmail.com>
+        (Google Transport Security);
+        Tue, 23 Sep 2025 14:11:11 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tgoetz@utah.gov designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@utah.gov header.s=google header.b=SD8fHx8d;
+       spf=pass (google.com: domain of tgoetz@utah.gov designates 209.85.220.41 as permitted sender) smtp.mailfrom=tgoetz@utah.gov;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=utah.gov;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=utah.gov; s=google; t=1758661870; x=1759266670; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=WKxKs9r5e+GpVSVE/PxC4BUE+m3D50s11lOj5a7iZqc=;
+        b=SD8fHx8dwLbI1Zf6YXiOelaoPvsvClxMoUOYz1Z0xYWmQNXuk7h+AeLsaJaGiAf1Jz
+         vCnQfAVayy4Cqyx93pEFMtpNAudPYo40MSrbq8lMbgyS8aK/J4hi9xLkhbiNcrbrdWqU
+         ftIuhOO0fkhmKn4r2GYdvipqWvOP2EEqq0XHxzdWum3E/llXIuGppyc6SzbjwPPGqHLO
+         SfT3b6It38hQmF7zheERq9EyoXGkIn9fhfHnnszy1SJIPP1+teoiwLnWgu3CP75POAmy
+         qYCVdz4NU2gE98gxuTLGAY3cUyx56fG1FIMKUD7JXJ3zNK+MvOMObHArVfd/4sLEq0Vk
+         WQjQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758661870; x=1759266670;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WKxKs9r5e+GpVSVE/PxC4BUE+m3D50s11lOj5a7iZqc=;
+        b=JWh9/BeARaAuKUfMvCRNHJmrdxv1zHyhY6NiH9RTTRrfcZJZTWFLyGZPPE6LDEVa0Y
+         9K1rxRN6j6/AThJTHR8V3sp/ZKxp6f3JSqqZNxfLx9a3M9/GVyJMjTic47rVKd1uXKwK
+         P31rLSBDc1eZMnrTs79h1lSUdtRvjJC0mcMkneWhG60E4VZt5+SGYr6mXHhkYBJvt+bG
+         lIqxbgHUlFU/C/Oy/CmOVm7snZjgTCIKvIj3+qYKmJ7EJH2nacjLc4gO5T6bGjVYmoJj
+         mSVw+IV7bEiyZX2gO6DOCSj9v2joeS0fkKo3HiKquhrIgWU5U+BdCAqsrI5UXxYpMSld
+         we8Q==
+X-Gm-Message-State: AOJu0YwZMzJUOmccjJ4t0CLfv00NbHh9A4Nz/dEOzgj2Zv7d9rbdxzWS
+	Rzd2j/KNf5JMVJwnbfMwLeXIdCNMpFWpoNG6odCESN62BZk8GvAfP+N97DkOEHsTySQXgAnB0/r
+	xheJ0QceQ6b1uwFRRb7dChS6SxxCvFS+uYewcBCshCTOq7pzGRmt1
+X-Gm-Gg: ASbGncuHckqPp/MdATL2UT2bTazHnKuKyJOHV+vnf2thH85Z8Fnmk7Vy3leT8bQqZ9c
+	tZonWhbJSksrWT8DzM1o1hhMuK5zEmNgU/Pj1D6uv+g+o5ttHZncoxzQjIaAIbyln0DqtUxh3pb
+	bBcS6LwXLW6x/DYvCq9blrXLNnAaA2XlT1Pb1u195lYzBs6HPie3qWy3mIEBtad19c6qnSkG78G
+	MVP5xk=
+X-Google-Smtp-Source: AGHT+IG7yH5VAVm+0Fw2ZX54TWRDb9TEx24ECxdpIiRmcyABfw1lwNZiSuvtPSmEzN7aMAjdGnB/NvLhXSnCUU44PwI=
+X-Received: by 2002:a05:622a:ce:b0:4b3:10f0:15b8 with SMTP id
+ d75a77b69052e-4d372475843mr48372731cf.77.1758661870357; Tue, 23 Sep 2025
+ 14:11:10 -0700 (PDT)
+MIME-Version: 1.0
+From: Tamara Goetz <tgoetz@utah.gov>
+Date: Tue, 23 Sep 2025 15:10:59 -0600
+X-Gm-Features: AS18NWCjIdhWu_eZwM57ZWf0c1MXFCXJFribJpU89wkEuWffCYryqWemb_Q210k
+Message-ID: <CAN-rjA-WCRcDdsHOerXi8DE9UphQ7+N8wr3rCg95MEPq38ZXwQ@mail.gmail.com>
+Subject: RE: Tinker Time email
+To: tooj13@gmail.com
+Content-Type: multipart/alternative; boundary="0000000000001021ab063f7e60b0"
+
+--0000000000001021ab063f7e60b0
+Content-Type: text/plain; charset="UTF-8"
+
+Dear Mr. McClure,
+Thank you for your email, we always appreciate feedback that helps us to
+improve our programs for you and your children. On behalf of our team, I
+apologize for the uncomfortable situation last Friday night at Tinker Time.
+I completely agree that this type of behavior is not appropriate and assure
+you that it is not allowed from our team. They are committed to providing a
+rewarding experience for all of our participants.
+
+I did clarify that Becca and Gina were the only STEM Action Center
+employees at Tinker Time and they were not the individuals having the
+conversations. Becca and Gina were engaged with helping other participants
+and unaware of these conversations. However, Becca is fairly certain that
+she knows who was probably engaging in the conversations and she will reach
+out and let them know that they need to be more mindful of the
+family-friendly environment. We will also post a sign that reminds
+participants that we are a family-friendly organization and that they need
+to keep their conversations appropriate and relevant to the amazing maker
+learning experience that we strive to provide for everyone.
+
+Again, thank you for bringing this to our attention and I hope that we will
+see you soon!
+Warm regards,
+Tami
+
+-- 
+*Tamara L. Goetz, Ph.D.*
+*Director*
+*Utah STEM Action Center*
+*Department of Cultural and Community Engagement*
+3848 S West Temple, Suite 105
+Salt Lake City, UT 84115
+Ph: 801-674-2405
+
+--0000000000001021ab063f7e60b0
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div>Dear Mr. McClure,</div><div>Thank you for your email,=
+ we always appreciate feedback that helps us to improve our programs for yo=
+u and your children. On behalf of our team, I apologize for the uncomfortab=
+le situation last Friday night at Tinker Time. I completely=C2=A0agree that=
+ this type of behavior is not appropriate=C2=A0and assure you that it is no=
+t allowed from our team. They are committed to providing a rewarding experi=
+ence for all of our participants.=C2=A0</div><div><br></div><div>I did clar=
+ify that Becca and Gina were the only STEM Action Center employees at Tinke=
+r Time and they were not the individuals having the conversations. Becca an=
+d Gina were engaged with helping other participants and unaware of these co=
+nversations. However, Becca is fairly certain that she knows who was probab=
+ly engaging in the conversations and she will reach out and let them know t=
+hat they need to be more mindful of the family-friendly environment. We wil=
+l also post a sign that reminds participants=C2=A0that we are a family-frie=
+ndly=C2=A0organization and that they need to keep their conversations appro=
+priate=C2=A0and relevant to the amazing maker learning experience that we s=
+trive to provide for everyone.=C2=A0</div><div><br></div><div>Again, thank =
+you for bringing this to our attention and I hope that we will see you soon=
+!</div><div>Warm regards,=C2=A0</div><div>Tami</div><div><br></div><span cl=
+ass=3D"gmail_signature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmai=
+l_signature" data-smartmail=3D"gmail_signature"><div dir=3D"ltr"><div dir=
+=3D"ltr"><div><font face=3D"georgia, serif"><b>Tamara L. Goetz, Ph.D.</b></=
+font></div><div><font face=3D"georgia, serif"><b>Director</b></font></div><=
+div><font face=3D"georgia, serif"><b>Utah STEM Action Center</b></font></di=
+v><font face=3D"georgia, serif"><b>Department of Cultural and Community Eng=
+agement</b></font><br><div><font face=3D"georgia, serif">3848 S West Temple=
+, Suite 105</font></div><div><font face=3D"georgia, serif">Salt Lake City, =
+UT 84115</font></div><div><font face=3D"georgia, serif">Ph:=C2=A0<a value=
+=3D"+18016742405" style=3D"color:rgb(17,85,204)">801-674-2405</a></font></d=
+iv><div><br></div></div></div></div></div>
+
+--0000000000001021ab063f7e60b0--

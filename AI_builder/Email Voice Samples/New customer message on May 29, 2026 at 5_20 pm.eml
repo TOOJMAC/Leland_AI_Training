@@ -1,0 +1,300 @@
+Delivered-To: tooj13@gmail.com
+Received: by 2002:a05:7108:92c6:b0:54e:1977:4f03 with SMTP id hs6csp2137531gdb;
+        Mon, 1 Jun 2026 08:21:27 -0700 (PDT)
+X-Received: by 2002:a17:907:3f20:b0:bee:72b9:f5a4 with SMTP id a640c23a62f3a-bee72b9f9famr133576666b.13.1780327286986;
+        Mon, 01 Jun 2026 08:21:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1780327286; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=e5JbHZOd+3Hek12W0a9Q5z127F1tUmAJCsrYcomqQtxIbDioayneJwiQPVUx2w8AkP
+         wnJ/ItRuOeROIDg1v/QKV4N9HlrMQ0lKxPNbSs3bCKMVn2AvodrGLLCLy8bFQ8wagbMH
+         R7MaoN2X+g+FRhHS2ZAChbF6KHvuQsZPaBg+UMg8GGaYCNcctXu5A6CQDhhVLyACqyzM
+         OiStXW3//DzhTluJUd9AULziuUiZUXmvFq52sdDzo0VowakzHUOlaDBTEfatEgNQjHMv
+         OT3kcVQaCeoAKweZb2yUZ5ZVRQnGeU8BRweMr/PKm6YMP2v+DGQcHFg0BaIwZj0/mLsE
+         +qkg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=PBhOvqpFtWabJyjjvg/GR2cXbd4qlo3kb3O5umwQflE=;
+        fh=mg22T2AwAsxH78SQ0vstXvNiKOMVfhJXjiXrz8i1OX4=;
+        b=RAYLgthVxSIzduUSzprDNWjUhY24uqBhp4BUndPZ6K/SzBpSzndlW5kM1AnZGEPsgD
+         zWUaej0e9ePTxq+pKMUSnE6PMDrTvmcfWOJN6/KvUMcBJR7SB3aBrjei/EC87vX85wev
+         uEC345Jm34rPPTR6yGXeQrYBM6YM9YJwMtbHKOFgM/KTkhwmeXkiI5P1EzW4ckGmOHNL
+         AgN4bK3y65Rstbg1wE1OzDJQWxx0RSfhgPaJetJ1m6DymBgit3O9lcezstorpLQ3f78R
+         WjRdhsmVhNiaXUN+dBWVemCPnT5f5qQjXqlkFPYrqt4MxWaEO2G+ADwzbafuqfIgE+QQ
+         Y2BQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@labjack.com header.s=google header.b=P81YmA59;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of labjacksupport@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=labjacksupport@gmail.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=labjack.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <labjacksupport@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 4fb4d7f45d1cf-68ceb80e8dfsor949020a12.3.2026.06.01.08.21.26
+        for <tooj13@gmail.com>
+        (Google Transport Security);
+        Mon, 01 Jun 2026 08:21:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of labjacksupport@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@labjack.com header.s=google header.b=P81YmA59;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of labjacksupport@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=labjacksupport@gmail.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=labjack.com;
+       dara=pass header.i=@gmail.com
+ARC-Seal: i=1; a=rsa-sha256; t=1780327286; cv=none;
+        d=google.com; s=arc-20240605;
+        b=GlVQ6te0HL9aKE9xgKQSMt0NTGaI3zTYt4HfvqgXOvnYTyQeEV+3128m7srhE1g5yQ
+         bnU8HnxwmoEkYL2gsTQjT5/P2dztWthkfH743eioojrwSll0g3p1fehxlKTvTkUbpcng
+         DjW2XtcdNPRBYC9jNNeqZUX/PDydE6FFc27Lg0/9az88zIT/PQn+VlyUrrG7TOKK2A6V
+         hizDZMaBsT/Y1sawwvyjsnIYHxC9O8O5icH/WOAWeiffw/ZmmLpdTz0ghcSt6SHNOTkf
+         38ViZec8R52iaDLatuU6/hc5cRM4dA5JWs67mzKqOydfuV1GTJFKMt1sRFbWA7lDPVxB
+         zrZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=PBhOvqpFtWabJyjjvg/GR2cXbd4qlo3kb3O5umwQflE=;
+        fh=mg22T2AwAsxH78SQ0vstXvNiKOMVfhJXjiXrz8i1OX4=;
+        b=QW0XAiQfR4Gg35RL8u+RVIMEkyrty+YZFIPqp5Px0o/wc3z4++kpw24IK8m7QFyti7
+         sIGxR0m7Eq9AtB3qdb6QgnaRCp8s58rGS29LS7fIeIgGGO+abDbkgKM0YhxdvksxAqHu
+         vIFfdQ60uhfxx69UIL96wv6F3aVpo0a/M1yuZkLRc/kU9f+AntcvzIuipQWyedzF7uwk
+         tWA0d63uP2nMrvNEIhDll1KyecYhF93mmqPgjBmqAOL5q99YVa4DxkHE27MbgpZaE9X1
+         7ctZVHYqE7HasuhmUw+WoC8QtdYClOAMG6kXAA55RusooLS0G9M199p/EWV1VzDZEMFx
+         0trg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=labjack.com; s=google; t=1780327286; x=1780932086; dara=google.com;
+        h=to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=PBhOvqpFtWabJyjjvg/GR2cXbd4qlo3kb3O5umwQflE=;
+        b=P81YmA59LuMKWqQEWhGz5XWO7dX+CjUaPwVP0jL9vYrNp3Ytph/m6m0iFHAYd2my+a
+         juagqTzPuyGno8MFN10B6dNB77yLM50mwo9F7fB+KL/8+Zlbqhm7snSwM1HJNjIUgJvC
+         tIVLpOfYfsxODLqKxD0eE2tCbFzOLloYFEKz27gds7yytPj4Jn8ECXWqB9CX+H4+gYvM
+         cOnZ3PeJNpNZoAjpHnD1gRHjEfpqGoVIuo+UYwjc9qKJzvzxOWWWgXmGRnFR06j/c5BM
+         buUv/8Tzb/xdn+3ddwWVXfmcy48A6DXuibIudpsytl+mUCupPpAEFqQlDYXh34RZdt0E
+         XsqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1780327286; x=1780932086;
+        h=to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PBhOvqpFtWabJyjjvg/GR2cXbd4qlo3kb3O5umwQflE=;
+        b=sRBkZi88q4mwEB9HmhSlo9onduu8h6LRXD3vT941MUEwJSZ4oiiK51CmqayjQQq4IQ
+         D0LOE6+huwF6y880X1ygSZYWRsTczjfv4kUQLp0CJSSbuefAiLaJNAfuzivAe/CxDENM
+         Fk1rvROrbdRj1/IRtJ/lGnvNYMya0O7/LgLXk30TkrJJ2NMqU34s0PA4kqDP52GnJSrw
+         /3+lFx+EyWBTMlMmieD91JasHt3QYH5HHIp0Fx5V14RIEyRbIkitd29nMpqDlaKLegw0
+         FdT9nloBD216B5pNtBxvDG+WFFzX0SYLuAmOVOu+qiq++RseN7MdDNYlMrTWGuVsGjf0
+         cAEg==
+X-Gm-Message-State: AOJu0YzcLvA0oerqtqDNQv81gSJXMJw1t1LuYMhTW+9jBj4hIBk/ZW0K
+	YwJPu5xMIjyzEZgSp3M9i+vX6drnAB2QYBYg1qFjaS0wxboF6I1ou3CTRgF0CzPSmMxNVinDO4R
+	P/hKw3unN66udRZyo/45TQRCyHFlI5bVhPq9a
+X-Gm-Gg: Acq92OFZTXcJPFuaiPB2+VnWTFUN1BrP/ANsGuz6kaOziKoohDGOE/diZYDDH1cr/uw
+	GLspQuUwww9BPxJXaOkyvPuAskJ5gRK14fijrk7HfKIB+Y+xIPaGN8pt6h1QrmAZhm34hl/181i
+	pl4AkHgYgY7+39FN5U8hYy8KddcgMLp72w/KFZ4fgKhv+FWX9pZxygF1a9nd5c7M8PMhQIUGbwE
+	C8Syw0qxz5bvR9iwiBGBTmsMr7LX8N38PRmjMkRVF+MpUf7Wa2jkTia0TjXGHaujKoAEtDFO/eW
+	Rx31OSEDd4lpG4VhdzfJQ6VW2hc3D+EIfiNq3Q7gc2uqW8c3PDbfJV7erFuje+NwjUQ88nM8WwX
+	r/FQFgy/055jJ1iFqOy3v7QotDrimj7IYhAf/Z9O03BawonIV3SntInoDT23s836fW410uUaCKf
+	JvIis9GXPfx3s1jXiHJRZ0kh3mWbmxzcmTdQAp9MmaexCBAEPaqPKsbAinuEAyam3wns87pXCc6
+	ROeXNMk1HPTmG4QVsleN/PQv6eRGaGdg4VOqZyIrF8rRB6jPlZa4bCCzdYGvZUYzrrAkUOgiOAd
+	xcNPIycJtZ8s9PASzk7YusfGiyYhMXhPVSFfHk9xWYYKJ5NwOi2g4rpfuKW8sj0lJQ8AUhbs8Ia
+	aiswzGpQSZpSwmK3ZPXNivZLcMyuVZnWq10Ry1Go88S0Fsu1HNmwEtkM12q3cTMaOW5e4IAPI9f
+	J9M4L3
+X-Received: by 2002:a05:6402:a582:10b0:66a:6f5f:d77e with SMTP id
+ 4fb4d7f45d1cf-68c07b61226mr4867927a12.14.1780327285689; Mon, 01 Jun 2026
+ 08:21:25 -0700 (PDT)
+MIME-Version: 1.0
+References: <E1030004-18B42CA8D9334A7A-5A157CCD@shopify.com>
+In-Reply-To: <E1030004-18B42CA8D9334A7A-5A157CCD@shopify.com>
+Reply-To: support@labjack.com
+From: LabJack Support <support@labjack.com>
+Date: Mon, 1 Jun 2026 09:20:58 -0600
+X-Gm-Features: AVHnY4InUOdNMfflOBwj4bw78MJ1uv72EOTz9PZCsvO4nYXQE8sWWjNhKx4lIo4
+Message-ID: <CAO5KzaSUk5hbi8px0DqZyfmNgNeUu+52sSeihs1bGsUJLuZzRg@mail.gmail.com>
+Subject: Re: New customer message on May 29, 2026 at 5:20 pm
+To: tooj13@gmail.com
+Content-Type: multipart/alternative; boundary="0000000000007294a5065332bfa9"
+
+--0000000000007294a5065332bfa9
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+I spoke with you over chat the other day. Did we get everything sorted out?
+
+Best Regards,
+Steve
+
+LabJack Support
+support@labjack.com
+
+LabJack Corporation
+6900 W JEFFERSON AVE STE 110
+LAKEWOOD CO 80235-2335
+V:(303)942-0228
+
+How did we do?
+Great / Okay / Not Good
+<https://docs.google.com/forms/d/e/1FAIpQLSfkvhb7q6YtG-fovIkV9xUABP6f4kfsZQ=
+pTetmHzw-yHLu3cA/viewform>
+
+
+On Fri, May 29, 2026 at 5:20=E2=80=AFPM LabJack (Shopify) <mailer@shopify.c=
+om>
+wrote:
+
+> You received a new message from your online store's contact form.
+> *Country Code:*
+>
+> US
+>
+> *(Your Name):*
+>
+> TJ
+>
+> *Email:*
+>
+> tooj13@gmail.com
+>
+> *Include Relevant Details Such As Os, Software Plans, Signal Types, Data
+> Rates And # Of Channels:*
+>
+> I am using LabVIEW with Modbus.  I can successfully configure the DIO on =
+the LabJack T7.  However when I try to configure the AIN0:3 to be Thermocou=
+plers I get huge number
+>
+>
+
+--0000000000007294a5065332bfa9
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div>Hello,</div><div><br></div><div>I spoke with you over=
+ chat the other day. Did we get everything sorted out?</div><div><br></div>=
+<div>Best Regards,</div><div>Steve</div><div><br></div><div><div dir=3D"ltr=
+" class=3D"gmail_signature" data-smartmail=3D"gmail_signature"><div dir=3D"=
+ltr">LabJack Support<br><a href=3D"mailto:support@labjack.com" target=3D"_b=
+lank">support@labjack.com</a><br><br><div><div style=3D"margin:0px;padding:=
+0px;border:0px;outline:0px;font-size:16px;vertical-align:baseline;backgroun=
+d-image:initial;background-position:initial;background-repeat:initial;color=
+:rgb(0,0,0);font-family:&quot;Segoe UI&quot;,helvetica,arial,sans-serif"><f=
+ont size=3D"2">LabJack Corporation</font><br></div><div style=3D"margin:0px=
+;padding:0px;border:0px none;outline:currentcolor none 0px;vertical-align:b=
+aseline;background-image:initial;background-position:initial;background-rep=
+eat:initial;color:rgb(0,0,0);font-family:&quot;Segoe UI&quot;,helvetica,ari=
+al,sans-serif"><font size=3D"2">6900 W JEFFERSON AVE STE 110<br>LAKEWOOD CO=
+ 80235-2335</font></div><font size=3D"2">V:(303)942-0228=C2=A0</font></div>=
+<div><font size=3D"2"><br></font></div><div><div style=3D"margin:0px;paddin=
+g:0px;border:0px;outline:0px;font-size:16px;vertical-align:baseline;backgro=
+und-image:initial;background-position:initial;background-repeat:initial;col=
+or:rgb(0,0,0);font-family:&quot;Segoe UI&quot;,helvetica,arial,sans-serif">=
+<div style=3D"margin:0px;padding:0px;border:0px;outline:0px;vertical-align:=
+baseline;background:transparent">How did we do?</div></div><div style=3D"ma=
+rgin:0px;padding:0px;border:0px;outline:0px;font-size:16px;vertical-align:b=
+aseline;background-image:initial;background-position:initial;background-rep=
+eat:initial;color:rgb(0,0,0);font-family:&quot;Segoe UI&quot;,helvetica,ari=
+al,sans-serif"><a href=3D"https://docs.google.com/forms/d/e/1FAIpQLSfkvhb7q=
+6YtG-fovIkV9xUABP6f4kfsZQpTetmHzw-yHLu3cA/viewform" style=3D"margin:0px;pad=
+ding:2px 0px;vertical-align:baseline;background:transparent;color:rgb(28,92=
+,118)" target=3D"_blank">Great / Okay / Not Good</a></div></div></div></div=
+></div><br></div><br><div class=3D"gmail_quote gmail_quote_container"><div =
+dir=3D"ltr" class=3D"gmail_attr">On Fri, May 29, 2026 at 5:20=E2=80=AFPM La=
+bJack (Shopify) &lt;<a href=3D"mailto:mailer@shopify.com">mailer@shopify.co=
+m</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin=
+:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"=
+><div class=3D"msg-3706510505881437319"><u></u>
+   =20
+   =20
+   =20
+     =20
+   =20
+   =20
+     =20
+   =20
+ =20
+
+  <div style=3D"height:100%;width:100%;font-size:14px;font-weight:400;line-=
+height:20px;text-transform:initial;letter-spacing:initial;color:rgb(32,34,3=
+5);font-family:-apple-system,BlinkMacSystemFont,San Francisco,Segoe UI,Robo=
+to,Helvetica Neue,sans-serif;margin:0px;padding:0px">
+    <table class=3D"m_-3706510505881437319mail-body" style=3D"width:100%;bo=
+rder-collapse:collapse;border-spacing:0px;margin-top:0px;margin-bottom:0px;=
+padding:0px" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr style=3D"margin=
+-top:0px;margin-bottom:0px;padding:0px">
+<td style=3D"margin-top:0px;margin-bottom:0px;padding:0px;border-width:0px"=
+></td>
+<td style=3D"margin-top:0px;margin-bottom:0px;padding:0px;border-width:0px"=
+><table class=3D"m_-3706510505881437319mail-body__content" align=3D"center"=
+ style=3D"width:100%;border-collapse:initial;border-spacing:0px;max-width:4=
+70px;text-align:left;border-radius:8px;overflow:hidden;margin:32px auto 0px=
+;padding:0px;border:1px solid rgb(201,204,207)" cellpadding=3D"0" cellspaci=
+ng=3D"0"><tbody><tr style=3D"margin-top:0px;margin-bottom:0px;padding:0px">=
+<td style=3D"margin-top:0px;margin-bottom:0px;padding:0px;border-width:0px"=
+><table style=3D"width:100%;border-collapse:collapse;border-spacing:0px;mar=
+gin-top:0px;margin-bottom:0px;padding:0px" cellpadding=3D"0" cellspacing=3D=
+"0"><tbody><tr style=3D"margin-top:0px;margin-bottom:0px;padding:0px"><td s=
+tyle=3D"margin-top:0px;margin-bottom:0px;padding:20px;border-width:0px">
+<table style=3D"width:100%;border-collapse:collapse;border-spacing:0px;marg=
+in-top:0px;margin-bottom:0px;padding:0px" cellpadding=3D"0" cellspacing=3D"=
+0"><tbody><tr style=3D"margin-top:0px;margin-bottom:0px;padding:0px"><td st=
+yle=3D"margin-top:0px;margin-bottom:0px;padding:0px 0px 20px;border-width:0=
+px"><table style=3D"width:100%;border-collapse:collapse;border-spacing:0px;=
+margin-top:0px;margin-bottom:0px;padding:0px" cellpadding=3D"0" cellspacing=
+=3D"0"><tbody><tr style=3D"margin-top:0px;margin-bottom:0px;padding:0px"><t=
+d style=3D"margin-top:0px;margin-bottom:0px;padding:0px;border-width:0px"><=
+div>You received a new message from your online store&#39;s contact form.</=
+div></td></tr></tbody></table></td></tr></tbody></table>
+ =20
+  <table style=3D"width:100%;border-collapse:collapse;border-spacing:0px;ma=
+rgin-top:0px;margin-bottom:0px;padding:0px" cellpadding=3D"0" cellspacing=
+=3D"0"><tbody><tr style=3D"margin-top:0px;margin-bottom:0px;border-top:1px =
+solid rgb(201,204,207);padding:0px"><td style=3D"margin-top:0px;margin-bott=
+om:0px;padding:20px 0px 0px;border-width:0px">
+      <div>
+        <b>Country Code:</b>
+        <pre style=3D"font-size:14px;font-weight:400;line-height:20px;text-=
+transform:initial;letter-spacing:initial;color:rgb(32,34,35);font-family:-a=
+pple-system,BlinkMacSystemFont,San Francisco,Segoe UI,Roboto,Helvetica Neue=
+,sans-serif;margin-top:0px;margin-bottom:0px;white-space:pre-line;padding:0=
+px">US</pre>
+      </div>
+      <div style=3D"margin-top:8px">
+        <b>(Your Name):</b>
+        <pre style=3D"font-size:14px;font-weight:400;line-height:20px;text-=
+transform:initial;letter-spacing:initial;color:rgb(32,34,35);font-family:-a=
+pple-system,BlinkMacSystemFont,San Francisco,Segoe UI,Roboto,Helvetica Neue=
+,sans-serif;margin-top:0px;margin-bottom:0px;white-space:pre-line;padding:0=
+px">TJ </pre>
+      </div>
+      <div style=3D"margin-top:8px">
+        <b>Email:</b>
+        <pre style=3D"font-size:14px;font-weight:400;line-height:20px;text-=
+transform:initial;letter-spacing:initial;color:rgb(32,34,35);font-family:-a=
+pple-system,BlinkMacSystemFont,San Francisco,Segoe UI,Roboto,Helvetica Neue=
+,sans-serif;margin-top:0px;margin-bottom:0px;white-space:pre-line;padding:0=
+px"><a href=3D"mailto:tooj13@gmail.com" target=3D"_blank">tooj13@gmail.com<=
+/a></pre>
+      </div>
+      <div style=3D"margin-top:8px">
+        <b>Include Relevant Details Such As Os, Software Plans, Signal Type=
+s, Data Rates And # Of Channels:</b>
+        <pre style=3D"font-size:14px;font-weight:400;line-height:20px;text-=
+transform:initial;letter-spacing:initial;color:rgb(32,34,35);font-family:-a=
+pple-system,BlinkMacSystemFont,San Francisco,Segoe UI,Roboto,Helvetica Neue=
+,sans-serif;margin-top:0px;margin-bottom:0px;white-space:pre-line;padding:0=
+px">I am using LabVIEW with Modbus.  I can successfully configure the DIO o=
+n the LabJack T7.  However when I try to configure the AIN0:3 to be Thermoc=
+ouplers I get huge number</pre>
+      </div>
+</td></tr></tbody></table>
+</td></tr></tbody></table></td></tr></tbody></table></td>
+<td style=3D"margin-top:0px;margin-bottom:0px;padding:0px;border-width:0px"=
+></td>
+</tr></tbody></table>
+ =20
+ =20
+
+</div></div></blockquote></div>
+
+--0000000000007294a5065332bfa9--
