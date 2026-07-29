@@ -707,6 +707,56 @@
     </div>
   `;
 
+  const spreadsheetAnalysisDoc = `
+    <div class="ds-section">
+      <h4>The Dataset</h4>
+      <ul class="ds-list">
+        <li>200 U.S. colleges — admission rate, SAT, tuition, debt, 10-year earnings, completion rate, Nobel Prizes</li>
+        <li>A second state-level file with college wage premium and cost of living, merged in by state</li>
+        <li>Asked Claude to recommend computed columns instead of writing formulas myself — it added a Debt-to-Premium Ratio and a Real-Earnings-vs-State-Baseline column</li>
+      </ul>
+    </div>
+    <div class="ds-section">
+      <h4>The Two Charts I Picked</h4>
+      <ul class="ds-list">
+        <li><strong>Debt-to-Premium Ratio</strong> — how much debt a school's grads carry per dollar of wage premium a degree earns in that state. Lower is better.</li>
+        <li><strong>Real Earnings vs. State Baseline</strong> — how far a school's grads out-earn the typical bachelor's-degree holder in that state.</li>
+      </ul>
+    </div>
+    <div class="ds-section">
+      <h4>Prompt Chain — Run This On Any Spreadsheet</h4>
+      <div class="prompt-block">"Look at this spreadsheet and give me an overview — what's in it, how many rows, and any data quality issues. Then recommend computed columns that would surface something useful."</div>
+      <div class="prompt-block">"Write the formulas for those columns and run them — don't hardcode results, I want real formulas."</div>
+      <div class="prompt-block">"Build two charts directly in the sheet that best show the differences between [my rows of interest]."</div>
+      <div class="prompt-block">"What are the most interesting patterns or outliers in this data?"</div>
+    </div>
+  `;
+
+  const dataAnalysisPresentationDoc = `
+    <div class="ds-section">
+      <h4>The Outline I Started With</h4>
+      <ul class="ds-list">
+        <li>Asked Claude planning questions first — one at a time — before any slide got designed: focus, audience, desired takeaway</li>
+        <li>Turned the answers into a 6-slide-max outline where every slide makes exactly one point</li>
+        <li>Data slides got a takeaway headline up top instead of a plain chart title</li>
+      </ul>
+    </div>
+    <div class="ds-section">
+      <h4>Design Choices That Made It Feel Like Mine</h4>
+      <ul class="ds-list">
+        <li>Built with my own toojmac Rev A design skill — dark canvas, Trace Red accent used sparingly, Inter + JetBrains Mono only</li>
+        <li>Charts recolored and logo-branded to match a companion spreadsheet, instead of generic default chart colors</li>
+        <li>No accent stripes, gradients, or shadows — flat cards and whitespace only, per the design skill's rules</li>
+      </ul>
+    </div>
+    <div class="ds-section">
+      <h4>Prompt — Data to Deck</h4>
+      <div class="prompt-block">"Before you write the outline, ask me: what should this focus on, who's the audience, and what should they walk away thinking or doing? Then write a slide-by-slide outline of 6 slides or fewer — one point per slide, takeaway headlines instead of chart titles."</div>
+      <div class="prompt-block">"Build a fully-rendered slide deck from that outline. Apply [my design skill]. Keep text minimal — if a slide feels crowded, cut it down."</div>
+      <div class="prompt-block">"Export the deck as a PDF so I can share it anywhere."</div>
+    </div>
+  `;
+
   const projects = [
     {
       id: 'design-system-skill',
@@ -761,8 +811,32 @@
       doc: emailManagerDoc
     },
     { id: 'custom-workflow', title: 'Custom Workflow', desc: 'Coming soon.' },
-    { id: 'spreadsheet-analysis', title: 'Spreadsheet Analysis', desc: 'Coming soon.' },
-    { id: 'data-analysis-presentation', title: 'Data Analysis Presentation', desc: 'Coming soon.' },
+    {
+      id: 'spreadsheet-analysis',
+      title: 'Spreadsheet Analysis',
+      desc: 'Used Claude to clean, calculate, visualize, and surface insights from a real dataset - no formulas required.',
+      status: 'Built',
+      build: stepsHTML([
+        'Loaded a spreadsheet into Claude',
+        'Asked for an overview and recommended computed columns',
+        'Had Claude write the formulas and run them',
+        'Built two data visualizations directly in the sheet',
+        'Asked for the most interesting patterns and outliers'
+      ]),
+      doc: spreadsheetAnalysisDoc
+    },
+    {
+      id: 'data-analysis-presentation',
+      title: 'Data Analysis Presentation',
+      desc: 'Took a raw dataset and shipped a polished, shareable slide deck - all in one session.',
+      status: 'Built',
+      build: stepsHTML([
+        'Outlined the story with Claude before designing',
+        'Built the deck in Claude Design (or Cowork) using my design skill',
+        'Exported as PDF/PowerPoint/HTML and shared it'
+      ]),
+      doc: dataAnalysisPresentationDoc
+    },
     { id: 'file-organization', title: 'File Organization Process', desc: 'Coming soon.' },
     { id: 'ai-context-file', title: 'AI Context File', desc: 'Coming soon.' },
     { id: 'skills-library', title: 'Skills Library', desc: 'Coming soon.' }
