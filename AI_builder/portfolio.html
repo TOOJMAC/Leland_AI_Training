@@ -757,6 +757,146 @@
     </div>
   `;
 
+  const customWorkflowBuild = stepsHTML([
+    'Built an inquiry form (simplicity-inquiry.html) that POSTs to a Google Apps Script web app',
+    'The web app emails me the raw submission immediately, so nothing is lost even if parsing fails later',
+    'A time-driven trigger scans Gmail every minute for unread inquiry emails',
+    'Parses each email body into structured fields and checks for anything required but missing',
+    'Logs every inquiry to a Sheet with a Status and Missing Fields column',
+    'Auto-replies to the requester — confirms it\'s logged, or asks for exactly what\'s missing',
+    'Labels the Gmail thread Processed or Needs Review so nothing gets handled twice'
+  ]);
+
+  const customWorkflowDoc = `
+    <div class="ds-section">
+      <h4>What It Does</h4>
+      <ul class="ds-list">
+        <li>Receives the form POST and emails me the raw submission as an immediate backup trail</li>
+        <li>Parses "Label: value" lines out of the email body into named fields</li>
+        <li>Conditionally requires fields — Board Type is only required when Hardware On Hand is "yes"</li>
+        <li>Validates the requester's email format before trusting it as a reply-to address</li>
+        <li>Appends one row per inquiry to a Sheet instead of leaving everything buried in an inbox</li>
+      </ul>
+    </div>
+    <div class="ds-section">
+      <h4>Build Your Own</h4>
+      <div class="prompt-block">"Build me a Google Apps Script backend for [my form]: accept the POST, email me the raw submission, then on a timer parse unread inquiry emails into structured fields, log each to a Sheet with a status column, auto-reply confirming receipt or asking for whatever's missing, and label the thread so nothing gets processed twice."</div>
+    </div>
+  `;
+
+  const fileOrganizationBuild = `
+    <div class="ds-section">
+      <h4>Folder Tree I Landed On</h4>
+      <div class="prompt-block" style="white-space:pre-wrap;">AI_builder/
+  skills/
+    email-manager/
+    humanize-writing/
+    market-scan/
+    session-wrapup/
+  session-3-data/
+  Email Voice Samples/
+  apps-script/
+  portfolio.html
+  README.md</div>
+    </div>
+    <div class="ds-section">
+      <h4>3 Organizing Principles</h4>
+      <ul class="ds-list">
+        <li><strong>Group by function, not file type</strong> — skills live together, session deliverables live together, regardless of extension</li>
+        <li><strong>Deliverables stay separate from source</strong> — raw inputs (emails, datasets) don't share a folder with finished output</li>
+        <li><strong>Naming is consistent</strong> — kebab-case everywhere, no spaces, no vague names like "final" or "v2"</li>
+      </ul>
+    </div>
+  `;
+
+  const aiContextFileBuild = `
+    <div class="ds-section">
+      <h4>Sections of My Context File</h4>
+      <ul class="ds-list">
+        <li><strong>About Me</strong> — role and what I actually do day to day</li>
+        <li><strong>Goals</strong> — what I'm working toward this quarter</li>
+        <li><strong>How I Like AI to Respond</strong> — tone, length, format preferences</li>
+        <li><strong>Rules</strong> — non-negotiables the AI always follows</li>
+        <li><strong>Tools</strong> — what I use every day</li>
+        <li><strong>Key Files</strong> — where my important files live</li>
+      </ul>
+    </div>
+  `;
+
+  const skillsLibraryBuild = `
+    <div class="ds-section">
+      <h4>Current Skills</h4>
+      <ul class="ds-list">
+        <li><strong>email-manager</strong> — triages my inbox and drafts replies in my voice, never sends</li>
+        <li><strong>humanize-writing</strong> — keeps AI writing from reading like AI, includes my email voice guide</li>
+        <li><strong>session-wrapup</strong> — closes out a work session: branch, commit, PR, and portfolio update</li>
+        <li><strong>market-scan</strong> — structured gap/competitor/sizing check for a business idea</li>
+      </ul>
+    </div>
+  `;
+
+  const fileOrganizationDoc = `
+    <div class="ds-section">
+      <h4>Before / After</h4>
+      <ul class="ds-list">
+        <li><strong>Before</strong> — loose files at the root: notes, a stray API key, duplicate drafts of the same doc, raw email exports mixed in with finished deliverables</li>
+        <li><strong>After</strong> — skills grouped under skills/, session deliverables grouped under session-N-data/, raw source material kept separate from finished output, consistent kebab-case naming throughout</li>
+      </ul>
+    </div>
+    <div class="ds-section">
+      <h4>Prompt — Audit Any Messy Folder</h4>
+      <div class="prompt-block">"Audit my [folder name]. Tell me: what's in here grouped by type, anything duplicated or outdated, file names that are vague or badly named, files that belong in an archive, and any gaps I'd expect to find but don't. Output as a table, then tell me the highest-value changes — don't edit anything yet."</div>
+    </div>
+  `;
+
+  const aiContextFileDoc = `
+    <div class="ds-section">
+      <h4>What Each Section Covers — and Why</h4>
+      <ul class="ds-list">
+        <li><strong>About Me</strong> — grounds every answer in who's asking, so advice isn't generic</li>
+        <li><strong>Goals</strong> — keeps suggestions pointed at what actually matters right now</li>
+        <li><strong>How I Like AI to Respond</strong> — sets tone and format once instead of correcting it every session</li>
+        <li><strong>Rules</strong> — hard constraints the AI should never cross without asking</li>
+        <li><strong>Tools</strong> — tells the AI what's actually available to use or reference</li>
+        <li><strong>Key Files</strong> — points to where the real work lives so it doesn't have to guess</li>
+      </ul>
+    </div>
+    <div class="ds-section">
+      <h4>Starter Template</h4>
+      <div class="prompt-block" style="white-space:pre-wrap;"># About Me
+[Name, role, what you do day to day]
+
+# Goals
+[Top 1-2 goals for this quarter]
+
+# How I Like AI to Respond
+[Tone, length, format preferences]
+
+# Rules
+[2-3 things AI should always or never do]
+
+# Tools
+[What you use every day]
+
+# Key Files
+[Where your important files live]</div>
+    </div>
+  `;
+
+  const skillsLibraryDoc = `
+    <div class="ds-section">
+      <h4>Built vs. Installed</h4>
+      <ul class="ds-list">
+        <li><strong>Built from scratch</strong> — email-manager, humanize-writing, session-wrapup, market-scan, all custom to how I work</li>
+        <li><strong>Installed from a marketplace</strong> — general-purpose skills like skill-creator, dataviz, and pdf/docx/xlsx handling that ship with Claude Code</li>
+      </ul>
+    </div>
+    <div class="ds-section">
+      <h4>Prompt — Find Your Next Skill</h4>
+      <div class="prompt-block">"Based on the work I do — my role, my goals, the files in my working directory, and the kinds of prompts I've run with you — what skills do you think I should create? Propose skills I'd actually use, ranked by how much time they'd save weekly."</div>
+    </div>
+  `;
+
   const projects = [
     {
       id: 'design-system-skill',
@@ -810,7 +950,14 @@
       ]),
       doc: emailManagerDoc
     },
-    { id: 'custom-workflow', title: 'Custom Workflow', desc: 'Coming soon.' },
+    {
+      id: 'custom-workflow',
+      title: 'Custom Workflow',
+      desc: 'A Gmail-based inquiry parser for SIMplicity - turns incoming form emails into structured Sheet rows, auto-replies, and flags anything incomplete for review.',
+      status: 'Built',
+      build: customWorkflowBuild,
+      doc: customWorkflowDoc
+    },
     {
       id: 'spreadsheet-analysis',
       title: 'Spreadsheet Analysis',
@@ -837,9 +984,30 @@
       ]),
       doc: dataAnalysisPresentationDoc
     },
-    { id: 'file-organization', title: 'File Organization Process', desc: 'Coming soon.' },
-    { id: 'ai-context-file', title: 'AI Context File', desc: 'Coming soon.' },
-    { id: 'skills-library', title: 'Skills Library', desc: 'Coming soon.' }
+    {
+      id: 'file-organization',
+      title: 'File Organization Process',
+      desc: 'Used AI to audit my files and design an organization system that actually fits how I work.',
+      status: 'Built',
+      build: fileOrganizationBuild,
+      doc: fileOrganizationDoc
+    },
+    {
+      id: 'ai-context-file',
+      title: 'AI Context File',
+      desc: 'A persistent context file that teaches my AI tool who I am, what I do, and how I work - loaded into every chat automatically.',
+      status: 'Built',
+      build: aiContextFileBuild,
+      doc: aiContextFileDoc
+    },
+    {
+      id: 'skills-library',
+      title: 'Skills Library',
+      desc: 'A library of the AI skills I built or installed that turn one-off prompts into repeatable workflows.',
+      status: 'Built',
+      build: skillsLibraryBuild,
+      doc: skillsLibraryDoc
+    }
   ];
 
   const grid = document.getElementById('projects-grid');
